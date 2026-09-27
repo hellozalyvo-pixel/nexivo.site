@@ -1,0 +1,6 @@
+{
+  "name": "ZALYVO — Agence Web",
+  "description": "Création de sites web modernes, rapides et professionnels pour entrepreneurs, commerces et petites entreprises.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

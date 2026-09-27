@@ -1,0 +1,519 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #030712;
+    color: #f1f5f9;
+  }
+  
+  h1, h2, h3, .font-display {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+/* Professional Sapphire & Navy Lighting Utilities */
+.bg-mesh-pro {
+  background-color: #030712;
+  background-image: 
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(37, 99, 235, 0.22) 0%, rgba(3, 7, 18, 0) 75%),
+    radial-gradient(circle 800px at 80% 20%, rgba(30, 58, 138, 0.12) 0%, transparent 60%),
+    radial-gradient(circle 700px at 20% 60%, rgba(14, 30, 74, 0.14) 0%, transparent 60%);
+}
+
+/* Ultra-clean micro-grid with subtle blue luminescence */
+.bg-grid-pattern {
+  background-size: 52px 52px;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+}
+
+/* Enhanced Cyber Blue Grid with Subtle Starfield Junction Dots */
+.bg-grid-cyber-matrix {
+  background-size: 48px 48px, 48px 48px;
+  background-position: 0 0, 0 0;
+  background-image: 
+    radial-gradient(circle 1px at 0px 0px, rgba(96, 165, 250, 0.25) 100%, transparent 100%),
+    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+}
+
+/* Deep Obsidian Midnight Canvas - Rich Dark Base with Subtle 3D Accents */
+.bg-cyber-blue-canvas {
+  background-color: #01030a;
+  background-image: 
+    radial-gradient(ellipse 110% 55% at 50% -8%, rgba(29, 78, 216, 0.16) 0%, rgba(6, 182, 212, 0.06) 35%, transparent 60%),
+    radial-gradient(ellipse 70% 45% at 95% 35%, rgba(14, 116, 144, 0.09) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 5% 65%, rgba(30, 58, 138, 0.10) 0%, transparent 55%),
+    linear-gradient(180deg, #01030a 0%, #030612 25%, #010309 55%, #020510 80%, #000104 100%);
+}
+
+/* Fluid Organic Blue Auroras - Darkened and Deepened for Maximum Contrast */
+.aurora-blue-1 {
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.14) 0%, rgba(29, 78, 216, 0.09) 40%, transparent 70%);
+  filter: blur(95px);
+  animation: aurora-drift-1 18s ease-in-out infinite alternate;
+}
+
+.aurora-blue-2 {
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.08) 45%, transparent 75%);
+  filter: blur(105px);
+  animation: aurora-drift-2 22s ease-in-out infinite alternate;
+}
+
+.aurora-blue-3 {
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.10) 0%, rgba(15, 23, 42, 0.15) 50%, transparent 80%);
+  filter: blur(115px);
+  animation: aurora-drift-1 26s ease-in-out infinite alternate-reverse;
+}
+
+/* 3D Luminescent Floating Spheres */
+.orb-3d-cyan {
+  background: radial-gradient(circle at 35% 30%, #cffafe 0%, #06b6d4 28%, #1d4ed8 65%, #020617 95%);
+  box-shadow: 0 0 50px rgba(6, 182, 212, 0.7), 0 0 100px rgba(6, 182, 212, 0.35), inset -6px -6px 16px rgba(2, 6, 23, 0.95), inset 6px 6px 14px rgba(255, 255, 255, 0.6);
+  animation: orb-3d-float-1 12s ease-in-out infinite;
+}
+
+.orb-3d-sapphire {
+  background: radial-gradient(circle at 35% 30%, #bfdbfe 0%, #3b82f6 30%, #1e3a8a 68%, #020410 95%);
+  box-shadow: 0 0 60px rgba(59, 130, 246, 0.65), 0 0 110px rgba(37, 99, 235, 0.3), inset -7px -7px 18px rgba(1, 4, 15, 0.95), inset 6px 6px 14px rgba(255, 255, 255, 0.5);
+  animation: orb-3d-float-2 15s ease-in-out 2s infinite;
+}
+
+.orb-3d-deep {
+  background: radial-gradient(circle at 32% 28%, #60a5fa 0%, #2563eb 22%, #0f172a 60%, #01030a 95%);
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.5), inset -5px -5px 15px rgba(0, 0, 0, 0.95), inset 5px 5px 10px rgba(255, 255, 255, 0.4);
+  animation: orb-3d-float-3 18s ease-in-out 4s infinite;
+}
+
+@keyframes orb-3d-float-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-22px) rotate(12deg) scale(1.06);
+  }
+}
+
+@keyframes orb-3d-float-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(20px) rotate(-10deg) scale(1.04);
+  }
+}
+
+@keyframes orb-3d-float-3 {
+  0%, 100% {
+    transform: translateY(0px) scale(0.98);
+  }
+  50% {
+    transform: translateY(-16px) scale(1.05);
+  }
+}
+
+/* 3D Luminescent Contour Ribbon Wave */
+.wave-ribbon-3d {
+  background: linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.35) 20%, rgba(59, 130, 246, 0.5) 50%, rgba(99, 102, 241, 0.35) 80%, transparent 100%);
+  filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.8));
+  animation: wave-ribbon-anim 16s ease-in-out infinite alternate;
+}
+
+@keyframes wave-ribbon-anim {
+  0% {
+    transform: rotateX(65deg) rotateY(15deg) translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotateX(55deg) rotateY(-10deg) translateY(-25px) scale(1.08);
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotateX(68deg) rotateY(18deg) translateY(15px) scale(0.96);
+    opacity: 0.65;
+  }
+}
+
+@keyframes aurora-drift-1 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(50px, -30px) scale(1.12);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-30px, 40px) scale(0.95);
+    opacity: 0.75;
+  }
+}
+
+@keyframes aurora-drift-2 {
+  0% {
+    transform: translate(0px, 0px) scale(0.95);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate(-45px, 35px) scale(1.08);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(40px, -25px) scale(1);
+    opacity: 0.7;
+  }
+}
+
+.mask-radial-faded {
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* ==========================================================================
+   3D TYPOGRAPHY & EXTRUSION STYLES
+   ========================================================================== */
+
+/* 3D Main Display Text with Depth Extrusion & Ambient Glow */
+.text-3d-display {
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 0 rgba(148, 163, 184, 0.3),
+    0 3px 0 #1e3a8a,
+    0 4px 0 #172554,
+    0 5px 0 #0f172a,
+    0 6px 0 #020617,
+    0 8px 16px rgba(0, 0, 0, 0.85),
+    0 14px 28px rgba(2, 6, 23, 0.7);
+  letter-spacing: -0.02em;
+}
+
+/* 3D Cyan & Electric Azure Holographic Text */
+.text-3d-cyan-glow {
+  text-shadow: 
+    0 1px 0 #e0f2fe,
+    0 2px 0 #38bdf8,
+    0 3px 0 #0284c7,
+    0 4px 0 #0369a1,
+    0 5px 0 #075985,
+    0 6px 2px rgba(2, 6, 23, 0.9),
+    0 8px 18px rgba(0, 0, 0, 0.85),
+    0 0 25px rgba(56, 189, 248, 0.75),
+    0 0 50px rgba(6, 182, 212, 0.45);
+}
+
+/* 3D Metallic / Titanium Embossed Text for Metrics & Numbers */
+.text-3d-stat {
+  text-shadow: 
+    0 1px 0 #ffffff,
+    0 2px 0 #93c5fd,
+    0 3px 0 #3b82f6,
+    0 4px 0 #1d4ed8,
+    0 5px 0 #1e3a8a,
+    0 6px 0 #0f172a,
+    0 8px 14px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* 3D Section Headings (Medium Extrusion) */
+.text-3d-heading {
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.45),
+    0 2px 0 #1e40af,
+    0 3px 0 #1e3a8a,
+    0 4px 0 #0f172a,
+    0 6px 12px rgba(0, 0, 0, 0.8);
+}
+
+/* 3D Subtitle / Lead Paragraph Depth */
+.text-3d-subtitle {
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.95),
+    0 3px 8px rgba(2, 6, 23, 0.8);
+}
+
+/* 3D Tech Badge Text with Crisp Inset / Relief */
+.text-3d-badge {
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.25),
+    0 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+/* Custom glow utility classes */
+.glow-blue {
+  box-shadow: 0 0 50px -10px rgba(37, 99, 235, 0.35);
+}
+
+.glow-sapphire {
+  box-shadow: 0 0 60px -12px rgba(37, 99, 235, 0.28), 0 0 25px -5px rgba(59, 130, 246, 0.15);
+}
+
+.glow-subtle {
+  box-shadow: 0 10px 40px -15px rgba(37, 99, 235, 0.18);
+}
+
+/* Pro glass cards */
+.glass-panel-pro {
+  background: rgba(8, 14, 33, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.14);
+}
+
+.glass-panel-pro:hover {
+  border-color: rgba(96, 165, 250, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(30, 58, 138, 0.25);
+}
+
+/* Custom scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #172554;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
+}
+
+/* Toast progress bar keyframe */
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* ==========================================================================
+   3D DECOR & PERSPECTIVE ANIMATIONS
+   ========================================================================== */
+
+/* 3D Perspective Grid Plane */
+.perspective-container-3d {
+  perspective: 900px;
+  perspective-origin: 50% 30%;
+  transform-style: preserve-3d;
+}
+
+.grid-plane-3d {
+  transform: rotateX(72deg) translateZ(0);
+  transform-origin: 50% 100%;
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.22) 1px, transparent 1px);
+  animation: grid-scroll-3d 25s linear infinite;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,1) 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,1) 90%, transparent 100%);
+}
+
+@keyframes grid-scroll-3d {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 600px;
+  }
+}
+
+/* 3D Cube Rotation */
+.cube-3d-wrap {
+  transform-style: preserve-3d;
+  animation: rotate-cube-3d 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.cube-3d-wrap-reverse {
+  transform-style: preserve-3d;
+  animation: rotate-cube-3d-reverse 26s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes rotate-cube-3d {
+  0% {
+    transform: rotateX(15deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: rotateX(55deg) rotateY(180deg) rotateZ(35deg);
+  }
+  100% {
+    transform: rotateX(15deg) rotateY(360deg) rotateZ(0deg);
+  }
+}
+
+@keyframes rotate-cube-3d-reverse {
+  0% {
+    transform: rotateX(45deg) rotateY(360deg) rotateZ(10deg);
+  }
+  50% {
+    transform: rotateX(15deg) rotateY(180deg) rotateZ(-25deg);
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(10deg);
+  }
+}
+
+/* 3D Gyroscope Rings */
+.gyro-ring-1 {
+  transform: rotateX(65deg) rotateY(25deg);
+  animation: gyro-spin 18s linear infinite;
+}
+
+.gyro-ring-2 {
+  transform: rotateX(45deg) rotateY(-35deg);
+  animation: gyro-spin-reverse 22s linear infinite;
+}
+
+.gyro-ring-3 {
+  transform: rotateX(80deg) rotateZ(45deg);
+  animation: gyro-spin 30s linear infinite;
+}
+
+@keyframes gyro-spin {
+  from {
+    transform: rotateX(65deg) rotateY(25deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(65deg) rotateY(25deg) rotateZ(360deg);
+  }
+}
+
+@keyframes gyro-spin-reverse {
+  from {
+    transform: rotateX(45deg) rotateY(-35deg) rotateZ(360deg);
+  }
+  to {
+    transform: rotateX(45deg) rotateY(-35deg) rotateZ(0deg);
+  }
+}
+
+/* 3D Float with Parallax Drift */
+.float-3d-slow {
+  animation: float-3d-kf 9s ease-in-out infinite;
+}
+
+.float-3d-delayed {
+  animation: float-3d-kf 11s ease-in-out 3s infinite;
+}
+
+@keyframes float-3d-kf {
+  0%, 100% {
+    transform: translateY(0px) rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate3d(1, 1, 0, 8deg);
+  }
+}
+
+/* 3D Light Beam Shimmer */
+.light-beam-3d {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.18) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 80%);
+  transform: skewX(-22deg);
+  filter: blur(40px);
+  animation: light-pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes light-pulse {
+  0% {
+    opacity: 0.4;
+    transform: skewX(-22deg) scale(0.95);
+  }
+  100% {
+    opacity: 0.85;
+    transform: skewX(-20deg) scale(1.05);
+  }
+}
+
+/* ==========================================================================
+   HOLOGRAPHIC CYBER PEDESTAL & LASER PLATFORM
+   ========================================================================== */
+
+.holo-levitate-wrap {
+  animation: holo-levitation 6s ease-in-out infinite;
+}
+
+@keyframes holo-levitation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.holo-shadow-pulse {
+  animation: holo-shadow-fade 6s ease-in-out infinite;
+}
+
+@keyframes holo-shadow-fade {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(0.92);
+    opacity: 0.65;
+  }
+}
+
+.holo-spin-cw {
+  animation: holo-spin-360 24s linear infinite;
+}
+
+.holo-spin-ccw {
+  animation: holo-spin-rev 18s linear infinite;
+}
+
+@keyframes holo-spin-360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes holo-spin-rev {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.holo-laser-pulse {
+  animation: holo-laser-breathing 4s ease-in-out infinite alternate;
+}
+
+@keyframes holo-laser-breathing {
+  0% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.6));
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(6, 182, 212, 0.95)) drop-shadow(0 0 60px rgba(59, 130, 246, 0.7));
+  }
+}
+
+.holo-beam-upward {
+  background: linear-gradient(to top, rgba(6, 182, 212, 0.35) 0%, rgba(59, 130, 246, 0.15) 50%, transparent 100%);
+  clip-path: polygon(10% 100%, 90% 100%, 98% 0%, 2% 0%);
+  animation: holo-beam-shimmer 3s ease-in-out infinite alternate;
+}
+
+@keyframes holo-beam-shimmer {
+  0% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 0.85;
+  }
+}
+
