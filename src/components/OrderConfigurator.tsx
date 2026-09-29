@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { sendWebsiteOrderEmail, generateDirectMailtoUrl, WebsiteOrderPayload } from '../services/emailService';
 import FileUploadZone from './FileUploadZone';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 import RatingProposalModal from './RatingProposalModal';
 import InlineRatingCard from './InlineRatingCard';
 import {
@@ -109,7 +110,7 @@ export default function OrderConfigurator({
   const siteCreationMAD = currentPlan.basePriceMAD;
 
   const hostingMAD =
-    hostingType === 'zalyvo' ? HOSTING_DURATIONS_CONFIG[hostingDuration].basePriceMAD : 0;
+    hostingType === 'nexivo' || hostingType === 'zalyvo' ? HOSTING_DURATIONS_CONFIG[hostingDuration].basePriceMAD : 0;
 
   // 200 DH per supplement item
   const supplementsMAD = selectedSupplements.length * 200;
@@ -131,7 +132,7 @@ export default function OrderConfigurator({
   const hostingSummary =
     hostingType === 'client'
       ? (language === 'fr' ? 'Option 1 — Payé directement par le client à son hébergeur' : 'Option 1 — Paid directly by client to hosting provider')
-      : (language === 'fr' ? `Option 2 — ${selectedDurationInfo.label} avec Zalyvo` : `Option 2 — ${selectedDurationInfo.label} with Zalyvo`);
+      : (language === 'fr' ? `Option 2 — ${selectedDurationInfo.label} avec Nexivo` : `Option 2 — ${selectedDurationInfo.label} with Nexivo`);
 
   const supplementsSummary =
     selectedSupplements.length > 0
@@ -145,13 +146,13 @@ export default function OrderConfigurator({
 
   const brandingSummary =
     brandingChoice === 'with_branding'
-      ? (language === 'fr' ? 'Création du Logo & Nom par Zalyvo (+500 DH)' : 'Logo & Company Name creation by Zalyvo (+500 DH)')
+      ? (language === 'fr' ? 'Création du Logo & Nom par Nexivo (+500 DH)' : 'Logo & Company Name creation by Nexivo (+500 DH)')
       : (language === 'fr' ? 'Fournis par le client (0 DH - Gratuit)' : 'Provided by client (0 DH - Free)');
 
   const effectiveCompany =
     company.trim() ||
     (brandingChoice === 'with_branding'
-      ? (language === 'fr' ? 'À concevoir par Zalyvo (option +500 DH)' : 'To be created by Zalyvo (+500 DH option)')
+      ? (language === 'fr' ? 'À concevoir par Nexivo (option +500 DH)' : 'To be created by Nexivo (+500 DH option)')
       : '');
 
   const exampleFilesSummary =
@@ -209,7 +210,7 @@ export default function OrderConfigurator({
     setLoading(true);
 
     try {
-      // Envoi de l'intégralité de la description du site web à zalyvo.site@gmail.com
+      // Envoi de l'intégralité de la description du site web à web.nexivo@gmail.com
       await sendWebsiteOrderEmail(orderPayload);
     } catch (err) {
       console.error('Erreur lors de la transmission :', err);
@@ -233,7 +234,7 @@ export default function OrderConfigurator({
   const generateWhatsAppConfirmationUrl = () => {
     const isFr = language === 'fr';
     const text = isFr
-      ? `Bonjour Zalyvo ! Je viens d'envoyer ma demande détaillée de site web :%0A%0A*RÉCAPITULATIF DE COMMANDE*%0A- *Client* : ${encodeURIComponent(
+      ? `Bonjour Nexivo ! Je viens d'envoyer ma demande détaillée de site web :%0A%0A*RÉCAPITULATIF DE COMMANDE*%0A- *Client* : ${encodeURIComponent(
           firstName + ' ' + lastName
         )}%0A- *Entreprise* : ${encodeURIComponent(effectiveCompany || 'Non précisé')}%0A- *Pays* : ${encodeURIComponent(
           country
@@ -252,7 +253,7 @@ export default function OrderConfigurator({
         )}%0A- *Mode de règlement* : Paiement en cash%0A%0A*Description du projet* :%0A${encodeURIComponent(
           projectDescription || 'Voir formulaire'
         )}%0A%0APouvez-vous me recontacter pour valider mon projet sous 24h ? Merci !`
-      : `Hello Zalyvo! I have just sent my detailed website order inquiry:%0A%0A*ORDER SUMMARY*%0A- *Client*: ${encodeURIComponent(
+      : `Hello Nexivo! I have just sent my detailed website order inquiry:%0A%0A*ORDER SUMMARY*%0A- *Client*: ${encodeURIComponent(
           firstName + ' ' + lastName
         )}%0A- *Company*: ${encodeURIComponent(effectiveCompany || 'Not specified')}%0A- *Country*: ${encodeURIComponent(
           country
@@ -283,7 +284,7 @@ export default function OrderConfigurator({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <ScrollReveal yOffset={35}>
+        <ScrollReveal yOffset={35} once={true}>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400 mb-4">
               <Sparkles className="w-3.5 h-3.5" />
@@ -294,15 +295,17 @@ export default function OrderConfigurator({
               id="order-config-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              {t.order.titlePart1}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+              <TextReveal as="span" effect="words" className="inline-block mr-2">
+                {t.order.titlePart1}
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 inline-block">
                 {t.order.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-300">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-300">
               {t.order.subtitle}
-            </p>
+            </TextReveal>
           </div>
         </ScrollReveal>
 
@@ -324,7 +327,7 @@ export default function OrderConfigurator({
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 font-normal">
               {t.order.successText1}{' '}
-              <span className="text-white font-semibold underline decoration-blue-400">zalyvo.site@gmail.com</span>.{' '}
+              <span className="text-white font-semibold underline decoration-blue-400">web.nexivo@gmail.com</span>.{' '}
               {t.order.successText2}
             </p>
 
@@ -370,7 +373,7 @@ export default function OrderConfigurator({
                     <span className="text-emerald-400">{t.order.optClientPrice}</span>
                   ) : (
                     <span className="text-purple-300">
-                      {selectedDurationInfo.label} {language === 'fr' ? 'avec Zalyvo +' : 'with Zalyvo +'} {formattedHostingPrice}
+                      {selectedDurationInfo.label} {language === 'fr' ? 'avec Nexivo +' : 'with Nexivo +'} {formattedHostingPrice}
                     </span>
                   )}
                 </span>
@@ -406,7 +409,7 @@ export default function OrderConfigurator({
               )}
             </div>
 
-            {/* Proposition de noter Zalyvo sur 5 étoiles */}
+            {/* Proposition de noter Nexivo sur 5 étoiles */}
             <div className="mb-8">
               <InlineRatingCard
                 orderType="website"
@@ -447,7 +450,7 @@ export default function OrderConfigurator({
         ) : (
           <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
             {/* Left 8 Cols: 4 Steps */}
-            <ScrollReveal delay={0.1} yOffset={35} className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-8 space-y-8">
               {/* ÉTAPE 1 : Choisissez votre formule */}
               <div className="rounded-3xl p-6 sm:p-8 bg-[#090b14] border border-white/10 shadow-lg">
                 <div className="flex items-center gap-3 mb-6">
@@ -603,11 +606,11 @@ export default function OrderConfigurator({
                     </div>
                   </label>
 
-                  {/* Option 2.2: Je choisis une durée avec Zalyvo */}
+                  {/* Option 2.2: Je choisis une durée avec Nexivo */}
                   <label
-                    id="order-hosting-choice-zalyvo"
+                    id="order-hosting-choice-nexivo"
                     className={`flex items-start gap-4 p-5 rounded-2xl border cursor-pointer transition-all ${
-                      hostingType === 'zalyvo'
+                      hostingType !== 'client'
                         ? 'bg-gradient-to-r from-purple-950/30 to-blue-950/20 border-purple-500 ring-1 ring-purple-500/40'
                         : 'bg-white/[0.03] border-white/10 hover:border-white/20'
                     }`}
@@ -615,25 +618,25 @@ export default function OrderConfigurator({
                     <input
                       type="radio"
                       name="hostingType"
-                      checked={hostingType === 'zalyvo'}
-                      onChange={() => setHostingType('zalyvo')}
+                      checked={hostingType !== 'client'}
+                      onChange={() => setHostingType('nexivo')}
                       className="mt-1 w-4 h-4 text-purple-600 focus:ring-purple-500 bg-black/40 border-white/30 cursor-pointer"
                     />
                     <div className="flex-1">
                       <div className="font-bold text-white text-base mb-1 flex items-center justify-between">
-                        <span>{t.order.optZalyvoTitle}</span>
-                        {hostingType === 'zalyvo' && (
+                        <span>{t.order.optNexivoTitle || t.order.optZalyvoTitle}</span>
+                        {hostingType !== 'client' && (
                           <span className="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">
                             {language === 'fr' ? 'Durée sélectionnée' : 'Selected duration'}
                           </span>
                         )}
                       </div>
                       <p className="text-xs text-slate-400 leading-relaxed mb-4">
-                        {t.order.optZalyvoDesc}
+                        {t.order.optNexivoDesc || t.order.optZalyvoDesc}
                       </p>
 
-                      {/* Sous-section Durée si Zalyvo choisi */}
-                      {hostingType === 'zalyvo' && (
+                      {/* Sous-section Durée si Nexivo choisi */}
+                      {hostingType !== 'client' && (
                         <div className="mt-4 pt-4 border-t border-purple-500/20 animate-in fade-in duration-200">
                           <div className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
                             <Calendar className="w-3.5 h-3.5 text-purple-400" />
@@ -823,7 +826,7 @@ export default function OrderConfigurator({
                   )}
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Option 1: Oui, création par Zalyvo (+50 DH) */}
+                    {/* Option 1: Oui, création par Nexivo (+50 DH) */}
                     <div
                       id="branding-option-with"
                       onClick={() => {
@@ -981,7 +984,7 @@ export default function OrderConfigurator({
                       </label>
                       {brandingChoice === 'with_branding' && (
                         <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                          {language === 'fr' ? 'Optionnel (Zalyvo s’en charge)' : 'Optional (Zalyvo handles this)'}
+                          {language === 'fr' ? 'Optionnel (Nexivo s’en charge)' : 'Optional (Nexivo handles this)'}
                         </span>
                       )}
                     </div>
@@ -1121,8 +1124,8 @@ export default function OrderConfigurator({
                     </div>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                       {language === 'fr'
-                        ? '« Le paiement est effectué directement auprès de Zalyvo selon les conditions convenues pour votre commande. »'
-                        : '"Payment is made directly with Zalyvo according to agreed order terms."'}
+                        ? '« Le paiement est effectué directement auprès de Nexivo selon les conditions convenues pour votre commande. »'
+                        : '"Payment is made directly with Nexivo according to agreed order terms."'}
                     </p>
                     <div className="mt-2 text-[11px] text-slate-400 flex items-center gap-1.5">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -1131,16 +1134,16 @@ export default function OrderConfigurator({
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </div>
 
             {/* Right 4 Cols: Sticky RÉCAPITULATIF DE COMMANDE */}
-            <ScrollReveal delay={0.2} yOffset={35} className="lg:col-span-4 sticky top-28 space-y-6">
+            <div className="lg:col-span-4 sticky top-28 space-y-6">
               <div className="rounded-3xl p-6 sm:p-7 bg-[#0b0e1b] border border-blue-500/30 shadow-2xl">
                 <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                   <h3 className="text-lg font-bold text-white font-display">
                     {language === 'fr' ? 'Récapitulatif de commande' : 'Order Summary'}
                   </h3>
-                  <span className="text-xs text-blue-400 font-mono">ZALYVO</span>
+                  <span className="text-xs text-blue-400 font-mono">NEXIVO</span>
                 </div>
 
                 {/* Formule */}
@@ -1200,7 +1203,7 @@ export default function OrderConfigurator({
                         <span className="text-emerald-400">{t.order.optClientPrice}</span>
                       ) : (
                         <span className="text-purple-300">
-                          {selectedDurationInfo.label} {language === 'fr' ? 'avec Zalyvo +' : 'with Zalyvo +'} {formattedHostingPrice}
+                          {selectedDurationInfo.label} {language === 'fr' ? 'avec Nexivo +' : 'with Nexivo +'} {formattedHostingPrice}
                         </span>
                       )}
                     </span>
@@ -1263,16 +1266,16 @@ export default function OrderConfigurator({
 
                 <p className="text-[11px] text-slate-400 text-center mt-4">
                   {language === 'fr'
-                    ? "Confirmation et validation finale par WhatsApp avec l'équipe Zalyvo."
-                    : 'Final confirmation and validation via WhatsApp with the Zalyvo team.'}
+                    ? "Confirmation et validation finale par WhatsApp avec l'équipe Nexivo."
+                    : 'Final confirmation and validation via WhatsApp with the Nexivo team.'}
                 </p>
               </div>
-            </ScrollReveal>
+            </div>
           </form>
         )}
       </div>
 
-      {/* Proposition modale de noter Zalyvo sur 5 étoiles juste après commande */}
+      {/* Proposition modale de noter Nexivo sur 5 étoiles juste après commande */}
       <RatingProposalModal
         isOpen={showRatingModal}
         onClose={() => setShowRatingModal(false)}

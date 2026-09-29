@@ -326,7 +326,7 @@ export const INFO_ARTICLES_FR: InfoArticle[] = [
     title: 'Comment contacter le support Nexivo en cas de question ou d’urgence ?',
     badge: 'Support 7j/7',
     iconName: 'MessageCircle',
-    shortAnswer: 'Notre équipe est joignable directement par WhatsApp au +216 25 152 905 ou par email à nexivo.site@gmail.com avec une réponse garantie sous 24h.',
+    shortAnswer: 'Notre équipe est joignable directement par WhatsApp au +212 715 878 163 ou par email à web.nexivo@gmail.com avec une réponse garantie sous 24h.',
     fullDetails: [
       'Un canal WhatsApp direct et réactif pour poser vos questions, échanger sur votre projet ou demander des ajustements.',
       'Possibilité de programmer un appel téléphonique ou une session d’explication personnalisée.',
@@ -586,7 +586,7 @@ export const INFO_ARTICLES_EN: InfoArticle[] = [
     title: 'How to contact Nexivo support for inquiries or updates?',
     badge: '7/7 Support',
     iconName: 'MessageCircle',
-    shortAnswer: 'Reach our team directly on WhatsApp at +216 25 152 905 or via email at nexivo.site@gmail.com with a guaranteed 24-hour response.',
+    shortAnswer: 'Reach our team directly on WhatsApp at +212 715 878 163 or via email at web.nexivo@gmail.com with a guaranteed 24-hour response.',
     fullDetails: [
       'A dedicated, responsive WhatsApp channel to discuss your questions, project changes, or requests.',
       'Option to schedule phone consultations or personalized walk-throughs.',

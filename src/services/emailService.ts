@@ -63,11 +63,11 @@ export interface ContactInquiryPayload {
   message: string;
 }
 
-const TARGET_EMAIL = SITE_CONFIG.contact.email; // nexivo.site@gmail.com
+const TARGET_EMAIL = SITE_CONFIG.contact.email; // web.nexivo@gmail.com
 
 /**
  * Envoie la description complète et les détails du projet de site web
- * à l'adresse officielle NEXIVO : nexivo.site@gmail.com
+ * à l'adresse officielle NEXIVO : web.nexivo@gmail.com
  */
 export async function sendWebsiteOrderEmail(payload: WebsiteOrderPayload): Promise<{ success: boolean; message: string }> {
   // 1. Sauvegarde locale de sécurité pour ne perdre aucune demande
@@ -86,7 +86,6 @@ export async function sendWebsiteOrderEmail(payload: WebsiteOrderPayload): Promi
   const formattedData: Record<string, string> = {
     _subject: `[NEXIVO - Commande Site Web] ${payload.formulaName} - ${payload.firstName} ${payload.lastName}`,
     _replyto: payload.email,
-    _cc: 'hello.zalyvo@gmail.com',
     _template: 'table',
     _captcha: 'false',
     'Nom complet': `${payload.firstName} ${payload.lastName}`,
@@ -155,7 +154,6 @@ export async function sendContactInquiryEmail(payload: ContactInquiryPayload): P
   const formattedData: Record<string, string> = {
     _subject: `[NEXIVO - Devis Contact] ${payload.name} (${payload.formula})`,
     _replyto: payload.email,
-    _cc: 'hello.zalyvo@gmail.com',
     _template: 'table',
     _captcha: 'false',
     'Nom du contact': payload.name,
@@ -192,7 +190,7 @@ export async function sendContactInquiryEmail(payload: ContactInquiryPayload): P
 }
 
 /**
- * Génère un lien mailto de secours direct vers nexivo.site@gmail.com
+ * Génère un lien mailto de secours direct vers web.nexivo@gmail.com
  */
 export function generateDirectMailtoUrl(payload: WebsiteOrderPayload): string {
   const subject = encodeURIComponent(`[Commande Site Web] ${payload.formulaName} - ${payload.firstName} ${payload.lastName}`);
@@ -252,7 +250,6 @@ export async function sendSiteModificationOrderEmail(
   const formattedData: Record<string, string> = {
     _subject: `[NEXIVO - Pack Changement 1 500 DH] ${payload.company} - ${payload.firstName} ${payload.lastName}`,
     _replyto: payload.email,
-    _cc: 'hello.zalyvo@gmail.com',
     _template: 'table',
     _captcha: 'false',
     'Pack commandé': 'Pack Changement (Modification & Refonte de site web existant)',
@@ -322,7 +319,7 @@ Merci de me recontacter sous 24h pour démarrer les modifications de mon site.`
 }
 
 /**
- * Envoie la note client sur 5 étoiles à nexivo.site@gmail.com
+ * Envoie la note client sur 5 étoiles à web.nexivo@gmail.com
  * juste après avoir commandé un site web ou un changement
  */
 export async function sendRatingEmail(
@@ -351,7 +348,6 @@ export async function sendRatingEmail(
   const formattedData: Record<string, string> = {
     _subject: `[NEXIVO - Avis Client] Note : ${payload.stars}/5 étoiles (${starRepresentation}) - ${payload.clientName || 'Client'}`,
     _replyto: payload.clientEmail || TARGET_EMAIL,
-    _cc: 'hello.zalyvo@gmail.com',
     _template: 'table',
     _captcha: 'false',
     'Note attribuée': `${payload.stars} / 5 étoiles (${starRepresentation})`,
@@ -379,7 +375,7 @@ export async function sendRatingEmail(
 
     return {
       success: true,
-      message: 'Votre note a bien été transmise à nexivo.site@gmail.com. Merci pour votre confiance !',
+      message: 'Votre note a bien été transmise à web.nexivo@gmail.com. Merci pour votre confiance !',
     };
   } catch (error) {
     console.error("Erreur transmission de la note à l'email :", error);
@@ -391,7 +387,7 @@ export async function sendRatingEmail(
 }
 
 /**
- * Lien mailto direct pour envoyer la note sur 5 étoiles à nexivo.site@gmail.com
+ * Lien mailto direct pour envoyer la note sur 5 étoiles à web.nexivo@gmail.com
  */
 export function generateRatingMailtoUrl(payload: RatingPayload): string {
   const starRepresentation = '★'.repeat(payload.stars) + '☆'.repeat(5 - payload.stars);

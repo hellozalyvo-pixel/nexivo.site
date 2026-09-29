@@ -98,8 +98,8 @@ export default function InlineRatingCard({
       setSubmitted(true);
       showNotification(
         language === 'fr'
-          ? `Merci pour votre note de ${stars}/5 étoiles ! Elle a bien été envoyée à zalyvo.site@gmail.com.`
-          : `Thank you for your ${stars}/5 star rating! It was sent to zalyvo.site@gmail.com.`,
+          ? `Merci pour votre note de ${stars}/5 étoiles ! Elle a bien été envoyée à web.nexivo@gmail.com.`
+          : `Thank you for your ${stars}/5 star rating! It was sent to web.nexivo@gmail.com.`,
         {
           title: language === 'fr' ? 'Note transmise !' : 'Rating submitted!',
           duration: 6000,
@@ -141,8 +141,8 @@ export default function InlineRatingCard({
           </div>
           <p className="text-xs text-slate-300 max-w-sm mx-auto">
             {language === 'fr'
-              ? 'Votre note a bien été transmise à zalyvo.site@gmail.com.'
-              : 'Your rating has been successfully sent to zalyvo.site@gmail.com.'}
+              ? 'Votre note a bien été transmise à web.nexivo@gmail.com.'
+              : 'Your rating has been successfully sent to web.nexivo@gmail.com.'}
           </p>
         </div>
       ) : (
@@ -156,8 +156,8 @@ export default function InlineRatingCard({
               </div>
               <h4 className="text-base sm:text-lg font-bold text-white font-display">
                 {language === 'fr'
-                  ? 'Notez Zalyvo sur 5 étoiles'
-                  : 'Rate Zalyvo out of 5 stars'}
+                  ? 'Notez Nexivo sur 5 étoiles'
+                  : 'Rate Nexivo out of 5 stars'}
               </h4>
             </div>
             <button
@@ -172,8 +172,8 @@ export default function InlineRatingCard({
 
           <p className="text-xs text-slate-300 mb-4">
             {language === 'fr'
-              ? 'Votre note sera directement transmise à zalyvo.site@gmail.com :'
-              : 'Your rating will be sent directly to zalyvo.site@gmail.com:'}
+              ? 'Votre note sera directement transmise à web.nexivo@gmail.com :'
+              : 'Your rating will be sent directly to web.nexivo@gmail.com:'}
           </p>
 
           {/* Interactive Stars */}
@@ -237,7 +237,7 @@ export default function InlineRatingCard({
               <Mail className="w-3 h-3 text-amber-400 shrink-0" />
               <span>
                 {language === 'fr' ? 'Envoyé à :' : 'Sent to:'}{' '}
-                <strong className="text-slate-200">zalyvo.site@gmail.com</strong>
+                <strong className="text-slate-200">web.nexivo@gmail.com</strong>
               </span>
             </div>
 

@@ -33,7 +33,7 @@ export const LANGUAGES_CONFIG: Record<LanguageCode, LanguageInfo> = {
 export const TRANSLATIONS = {
   fr: {
     common: {
-      brandName: 'ZALYVO',
+      brandName: 'NEXIVO',
       agencyTag: 'Web Agency',
       tagline: 'Création de sites web modernes pour entreprises et entrepreneurs.',
       requestQuote: 'Demander un devis',
@@ -75,7 +75,7 @@ export const TRANSLATIONS = {
       titlePart1: 'Votre entreprise mérite un site à la hauteur de',
       titleHighlight: 'vos ambitions.',
       subtitle:
-        'Zalyvo crée des sites web modernes, rapides et professionnels pour aider les entreprises à développer leur présence en ligne.',
+        'Nexivo crée des sites web modernes, rapides et professionnels pour aider les entreprises à développer leur présence en ligne.',
       ctaQuote: 'Créer mon site',
       ctaPortfolio: 'Voir nos réalisations',
       pillDesign: 'Design moderne',
@@ -93,7 +93,7 @@ export const TRANSLATIONS = {
       mockNavPricing: 'Tarifs',
       mockNavContact: 'Contact',
       mockNavBook: 'Prendre rendez-vous',
-      mockTag: 'Créé par Zalyvo',
+      mockTag: 'Créé par Nexivo',
       mockTitle: 'L’excellence de vos services disponible en un clic.',
       mockSubtitle:
         "Un design sur mesure conçu pour captiver l'attention de vos prospects et transformer chaque visiteur en client fidèle.",
@@ -106,9 +106,9 @@ export const TRANSLATIONS = {
       mockCard3Title: 'Prêt à convertir',
       mockCard3Sub: "Boutons d'appel et WhatsApp directs",
       mockCard3Badge: '100% Opérationnel',
-      mockFooterLeft: '© Votre Entreprise — Réalisé avec Zalyvo',
+      mockFooterLeft: '© Votre Entreprise — Réalisé avec Nexivo',
       mockFooterRight: 'Certifié SSL & RGPD',
-      codeArchitectureTitle: '// Architecture moderne Zalyvo',
+      codeArchitectureTitle: '// Architecture moderne Nexivo',
       codeSuccess: '✓ Déploiement réussi : Site configuré, sécurisé et prêt pour vos clients.',
     },
     services: {
@@ -150,15 +150,15 @@ export const TRANSLATIONS = {
       titlePart1: 'Comment souhaitez-vous gérer',
       titleHighlight: 'votre hébergement ?',
       subtitle:
-        'Chez Zalyvo, vous avez la liberté totale de gérer votre serveur vous-même ou de nous déléguer son hébergement.',
+        'Chez Nexivo, vous avez la liberté totale de gérer votre serveur vous-même ou de nous déléguer son hébergement.',
       option1Badge: 'OPTION 1 — LIBERTÉ TOTALE',
       option1Title: 'Je gère mon hébergement',
       option1Desc: 'Le client achète et paie directement son hébergement auprès de son hébergeur préféré (Hostinger, OVH, Infomaniak, etc.).',
       option1Note: 'Le client achète et paie directement son hébergement auprès de son hébergeur préféré.',
-      option1Footer: 'Zalyvo déploie votre site gratuitement sur votre hébergement.',
+      option1Footer: 'Nexivo déploie votre site gratuitement sur votre hébergement.',
       option2Badge: 'OPTION 2 — CLÉ EN MAIN',
-      option2Title: 'Je choisis une durée avec Zalyvo',
-      option2Desc: 'Le client choisit une durée d’hébergement parmi nos 6 durées. Le prix de l’hébergement est ajouté au total et réglé à Zalyvo en cash selon les conditions convenues.',
+      option2Title: 'Je choisis une durée avec Nexivo',
+      option2Desc: 'Le client choisit une durée d’hébergement parmi nos 6 durées. Le prix de l’hébergement est ajouté au total et réglé à Nexivo en cash selon les conditions convenues.',
       option2ChooseDuration: 'Sélectionnez votre durée d’hébergement :',
       durations: {
         '1m': '1 mois',
@@ -170,8 +170,8 @@ export const TRANSLATIONS = {
         '48m': '48 mois',
       },
       option2RatePrefix: 'Tarif hébergement',
-      option2Footer: 'Gestion, renouvellement et support inclus par Zalyvo',
-      bottomQuoteHighlight: 'Chez Zalyvo, vous choisissez librement : gérez vous-même ou laissez-nous tout gérer sereinement.',
+      option2Footer: 'Gestion, renouvellement et support inclus par Nexivo',
+      bottomQuoteHighlight: 'Chez Nexivo, vous choisissez librement : gérez vous-même ou laissez-nous tout gérer sereinement.',
       option1: {
         tag: 'OPTION 1',
         title: 'Je gère mon hébergement',
@@ -179,14 +179,14 @@ export const TRANSLATIONS = {
         desc: 'Le client achète et paie directement son hébergement auprès de l’hébergeur de son choix (Hostinger, OVH, Infomaniak, Cloudways...).',
         point1: 'Vous êtes l’unique propriétaire de votre compte et contrat d’hébergement.',
         point2: 'Vous réglez directement la facture à votre hébergeur.',
-        point3: 'Zalyvo vous guide et déploie votre site sur votre serveur.',
+        point3: 'Nexivo vous guide et déploie votre site sur votre serveur.',
         badge: 'Paiement direct hébergeur',
       },
       option2: {
         tag: 'OPTION 2',
-        title: 'Je choisis une durée avec Zalyvo',
-        subtitle: 'Formule clé en main avec Zalyvo',
-        desc: 'Le client choisit une durée d’hébergement parmi nos 6 durées. Le prix de l’hébergement est ajouté au total et réglé à Zalyvo en cash selon les conditions convenues.',
+        title: 'Je choisis une durée avec Nexivo',
+        subtitle: 'Formule clé en main avec Nexivo',
+        desc: 'Le client choisit une durée d’hébergement parmi nos 6 durées. Le prix de l’hébergement est ajouté au total et réglé à Nexivo en cash selon les conditions convenues.',
         selectDurationLabel: 'Sélectionnez votre durée d’hébergement :',
         months: 'mois',
         badge: 'Clé en main',
@@ -200,7 +200,7 @@ export const TRANSLATIONS = {
       titlePart1: 'Votre',
       titleHighlight: 'nom de domaine',
       description:
-        "Zalyvo peut s'occuper de la configuration de votre nom de domaine selon votre commande. Les conditions et le renouvellement du domaine sont indiqués dans le devis.",
+        "Nexivo peut s'occuper de la configuration de votre nom de domaine selon votre commande. Les conditions et le renouvellement du domaine sont indiqués dans le devis.",
       point1: 'Configuration DNS & Certificat SSL sécurisé',
       point2: 'Transparence sur les coûts de renouvellement',
       boxLabel: 'Extension recommandée',
@@ -218,7 +218,7 @@ export const TRANSLATIONS = {
       quoteBtn: 'Devis pour ce style',
       interactiveDemoBadge: 'Démo interactive',
       badgeHD: 'Rendu HD',
-      modalBadge: 'Projet de démonstration Zalyvo',
+      modalBadge: 'Projet de démonstration Nexivo',
       modalDesktop: 'Version Ordinateur',
       modalMobile: 'Version Mobile',
       modalResponsiveBadge: '100% Adapté tous écrans',
@@ -227,7 +227,7 @@ export const TRANSLATIONS = {
       modalCta: 'Demander un devis pour ce style',
     },
     projectModal: {
-      demoBadge: 'PROJET DE DÉMONSTRATION ZALYVO',
+      demoBadge: 'PROJET DE DÉMONSTRATION NEXIVO',
       desktopView: 'Version Ordinateur',
       mobileView: 'Version Mobile',
       keyPoints: 'Points clés du site :',
@@ -235,13 +235,23 @@ export const TRANSLATIONS = {
       featuresTitle: 'Fonctionnalités incluses :',
       closeAria: 'Fermer',
     },
+    whyNexivo: {
+      badge: 'NOS ENGAGEMENTS',
+      titlePart1: 'Pourquoi choisir',
+      titleHighlight: 'Nexivo ?',
+      subtitle:
+        'Une approche humaine, technologique et pragmatique, centrée sur la réussite concrète de votre activité.',
+      standardNexivo: 'Standard d’excellence Nexivo',
+      standardZalyvo: 'Standard d’excellence Nexivo',
+    },
     whyZalyvo: {
       badge: 'NOS ENGAGEMENTS',
       titlePart1: 'Pourquoi choisir',
-      titleHighlight: 'Zalyvo ?',
+      titleHighlight: 'Nexivo ?',
       subtitle:
         'Une approche humaine, technologique et pragmatique, centrée sur la réussite concrète de votre activité.',
-      standardZalyvo: 'Standard d’excellence Zalyvo',
+      standardNexivo: 'Standard d’excellence Nexivo',
+      standardZalyvo: 'Standard d’excellence Nexivo',
     },
     faq: {
       badge: 'FOIRE AUX QUESTIONS',
@@ -263,15 +273,15 @@ export const TRANSLATIONS = {
       step1Title: '1. Choisissez la formule du site web',
       step1Sub: 'Prix officiel fixe pour la création du site web uniquement',
       step2Title: '2. Choix de l’hébergement',
-      step2Sub: 'Géré par vous-même ou souscrit avec Zalyvo',
+      step2Sub: 'Géré par vous-même ou souscrit avec Nexivo',
       step3SupplementsTitle: '3. Suppléments & Options à la carte (+200 DH chacun)',
       step3SupplementsSub: 'Intégrez WhatsApp, TikTok, Instagram, Maps, etc. pour 200 DH par élément',
       
       brandingTitle: 'Création du Logo et du Nom de l’entreprise',
-      brandingSub: 'Précisez si l’équipe Zalyvo doit concevoir votre identité (logo + nom) ou si vous les fournissez déjà.',
+      brandingSub: 'Précisez si l’équipe Nexivo doit concevoir votre identité (logo + nom) ou si vous les fournissez déjà.',
       brandingRequiredBadge: 'Choix obligatoire *',
       brandingOptionWithTitle: 'Oui — Concevoir le Logo et le Nom de l’entreprise',
-      brandingOptionWithDesc: 'L’équipe Zalyvo crée et recherche pour vous le nom officiel d’entreprise ainsi que votre logo professionnel sur-mesure.',
+      brandingOptionWithDesc: 'L’équipe Nexivo crée et recherche pour vous le nom officiel d’entreprise ainsi que votre logo professionnel sur-mesure.',
       brandingOptionWithPrice: '+500 DH',
       brandingOptionOwnTitle: 'Non — J’ai déjà mon Logo et le Nom de mon entreprise',
       brandingOptionOwnDesc: 'Vous nous fournirez directement votre propre logo et le nom déjà existant de votre entreprise lors de la réalisation du site.',
@@ -287,8 +297,10 @@ export const TRANSLATIONS = {
       optClientDesc: 'Le client achète et paie directement son hébergement auprès de son hébergeur.',
       optClientPrice: 'Payé directement par le client à l’hébergeur',
       
-      optZalyvoTitle: 'Option 2 — Je choisis une durée avec Zalyvo',
-      optZalyvoDesc: 'Le client choisit une durée parmi 1, 3, 6, 12, 24 ou 48 mois. Le prix est ajouté au total et réglé à Zalyvo en cash.',
+      optNexivoTitle: 'Option 2 — Je choisis une durée avec Nexivo',
+      optNexivoDesc: 'Le client choisit une durée parmi 1, 3, 6, 12, 24 ou 48 mois. Le prix est ajouté au total et réglé à Nexivo en cash.',
+      optZalyvoTitle: 'Option 2 — Je choisis une durée avec Nexivo',
+      optZalyvoDesc: 'Le client choisit une durée parmi 1, 3, 6, 12, 24 ou 48 mois. Le prix est ajouté au total et réglé à Nexivo en cash.',
       
       labelLastName: 'Nom *',
       phLastName: 'Votre nom de famille',
@@ -297,12 +309,12 @@ export const TRANSLATIONS = {
       labelCompany: 'Nom de l’entreprise / Marque *',
       labelCompanyOptional: 'Nom de l’entreprise / Marque (Optionnel)',
       phCompany: 'Ex : Mon Entreprise SARL',
-      phCompanyOptional: 'Laisser vide ou indiquer vos idées (Zalyvo s’en charge)',
-      companyOptionalHint: 'Option création sélectionnée : Zalyvo se charge de trouver le nom et concevoir le logo de votre entreprise.',
+      phCompanyOptional: 'Laisser vide ou indiquer vos idées (Nexivo s’en charge)',
+      companyOptionalHint: 'Option création sélectionnée : Nexivo se charge de trouver le nom et concevoir le logo de votre entreprise.',
       labelEmail: 'Adresse email professionnelle *',
       phEmail: 'contact@votre-entreprise.com',
       labelWhatsApp: 'Numéro WhatsApp / Téléphone *',
-      phWhatsApp: '+216 25 152 905',
+      phWhatsApp: '+212 715 878 163',
       labelCountry: 'Pays de résidence / Activité',
       labelActivity: 'Secteur d’activité du site *',
       phActivity: 'Ex : Restaurant, Agence immobilière, E-commerce, Cabinet médical...',
@@ -325,7 +337,7 @@ export const TRANSLATIONS = {
       recapExampleFiles: 'Exemples / Fichiers joints :',
       recapTotal: 'TOTAL DE LA COMMANDE :',
       recapPaymentMode: 'Règlement :',
-      recapPaymentText: 'Le client règle Zalyvo en cash selon les conditions convenues.',
+      recapPaymentText: 'Le client règle Nexivo en cash selon les conditions convenues.',
       
       submitButton: 'Envoyer ma commande détaillée',
       submitLoading: 'Transmission de votre commande...',
@@ -333,13 +345,13 @@ export const TRANSLATIONS = {
       successTitle: 'Votre commande a bien été enregistrée !',
       success24hBadge: 'Nous vous répondrons sous 24h',
       successText1: 'Toute la description détaillée de votre futur site web a été transmise à notre équipe sur',
-      successText2: 'Un conseiller Zalyvo analyse votre demande et vous recontactera sous 24h avec un plan d’action et un devis complet.',
+      successText2: 'Un conseiller Nexivo analyse votre demande et vous recontactera sous 24h avec un plan d’action et un devis complet.',
       successRecapTitle: 'Récapitulatif de votre demande transmise :',
       successFormulaLabel: 'Formule choisie :',
       successHostingLabel: 'Hébergement :',
       successTotalLabel: 'Total estimé :',
       successDescLabel: 'Votre description détaillée transmise :',
-      successWhatsAppBar: 'Échanger immédiatement sur WhatsApp (+216 25 152 905)',
+      successWhatsAppBar: 'Échanger immédiatement sur WhatsApp (+212 715 878 163)',
       successMailtoBtn: 'Envoyer un double par email',
       successEditBtn: 'Modifier ou faire une autre demande',
     },
@@ -356,8 +368,8 @@ export const TRANSLATIONS = {
       locationLabel: 'Zone d’intervention',
       locationValue: 'Maroc & International (À distance)',
       directWhatsAppTitle: 'Échangez en direct sur WhatsApp',
-      directWhatsAppDesc: 'Discutez immédiatement de vos modifications avec l’équipe Zalyvo ou passez votre commande ci-dessous.',
-      directWhatsAppBtn: 'Contacter Zalyvo sur WhatsApp',
+      directWhatsAppDesc: 'Discutez immédiatement de vos modifications avec l’équipe Nexivo ou passez votre commande ci-dessous.',
+      directWhatsAppBtn: 'Contacter Nexivo sur WhatsApp',
       fixedPriceNotice: 'Prix officiel fixe : 1 500 DH',
       noHostingNotice: 'Sans option hébergement imposée (vous gardez le vôtre)',
       noSupplementsNotice: 'Sans suppléments à la carte',
@@ -378,7 +390,7 @@ export const TRANSLATIONS = {
       formSending: 'Envoi en cours...',
       successTitle: 'Commande Pack Changement bien reçue !',
       successBadge: 'Prise en charge sous 24h',
-      successDesc: 'Votre commande et les fichiers de votre site existant ont bien été transmis à hello.zalyvo@gmail.com. Notre équipe examine votre demande et vous contacte sous 24h.',
+      successDesc: 'Votre commande et les fichiers de votre site existant ont bien été transmis à web.nexivo@gmail.com. Notre équipe examine votre demande et vous contacte sous 24h.',
       openWhatsAppBtn: 'Valider immédiatement sur WhatsApp',
       sendAnotherBtn: 'Faire une autre demande',
     },
@@ -390,8 +402,8 @@ export const TRANSLATIONS = {
       subtitle:
         'Vous possédez déjà un site web créé et souhaitez changer son design, ses textes ou moderniser sa structure ? Confiez-nous sa modification complète pour 1 500 DH fixes.',
       chatDirectTitle: 'Échangez en direct sur WhatsApp',
-      chatDirectDesc: 'Discutez immédiatement de vos modifications avec l’équipe Zalyvo ou passez votre commande ci-dessous.',
-      chatDirectBtn: 'Contacter Zalyvo sur WhatsApp',
+      chatDirectDesc: 'Discutez immédiatement de vos modifications avec l’équipe Nexivo ou passez votre commande ci-dessous.',
+      chatDirectBtn: 'Contacter Nexivo sur WhatsApp',
       benefit1: 'Modification complète d’un site déjà fait (design, pages, textes, boutons)',
       benefit2: 'Tarif unique et fixe de 1 500 DH sans frais cachés',
       benefit3: 'Sans option hébergement imposée : vous conservez votre hébergeur actuel',
@@ -401,7 +413,7 @@ export const TRANSLATIONS = {
       successTitle: 'Commande Pack Changement bien reçue !',
       successBadge: 'Prise en charge sous 24h',
       successDesc:
-        'Votre commande et les fichiers de votre site existant ont bien été transmis à hello.zalyvo@gmail.com. Notre équipe examine votre demande et vous contacte sous 24h.',
+        'Votre commande et les fichiers de votre site existant ont bien été transmis à web.nexivo@gmail.com. Notre équipe examine votre demande et vous contacte sous 24h.',
       recapPrice: 'Tarif fixe Pack Changement :',
       recapHosting: 'Hébergement :',
       recapHostingFree: '0 DH (Conservé chez votre hébergeur actuel)',
@@ -445,25 +457,25 @@ export const TRANSLATIONS = {
       officialSite: 'Site web officiel :',
       navTitle: 'Navigation',
       contactTitle: 'Contact direct',
-      pricingNotice: 'Prix officiels Zalyvo : STARTER 2 999 DH (3 pages, 7j) | PRO 4 500 DH (7 pages, 11j) | BUSINESS 6 500 DH (10 pages, 14j). Suppléments 200 DH. Hébergement séparé.',
+      pricingNotice: 'Prix officiels Nexivo : STARTER 2 999 DH (3 pages, 7j) | PRO 4 500 DH (7 pages, 11j) | BUSINESS 6 500 DH (10 pages, 14j). Suppléments 200 DH. Hébergement séparé.',
       backToTop: 'Haut de page',
     },
     floatingWhatsApp: {
-      invitation: 'Discuter de votre projet avec Zalyvo',
+      invitation: 'Discuter de votre projet avec Nexivo',
       ariaLabel: 'Contacter sur WhatsApp',
     },
     toast: {
       titleOrder: 'Demande de site transmise !',
       titleContact: 'Message bien envoyé !',
       message: 'Votre message a bien été envoyé et sera répondu sous 24h.',
-      teamNote: "Transmis à l'équipe Zalyvo (hello.zalyvo@gmail.com)",
+      teamNote: "Transmis à l'équipe Nexivo (web.nexivo@gmail.com)",
       closeAria: 'Fermer la notification',
     },
   },
 
   en: {
     common: {
-      brandName: 'ZALYVO',
+      brandName: 'NEXIVO',
       agencyTag: 'Web Agency',
       tagline: 'Modern website creation for businesses and entrepreneurs.',
       requestQuote: 'Request a quote',
@@ -505,7 +517,7 @@ export const TRANSLATIONS = {
       titlePart1: 'Your business deserves a website matching',
       titleHighlight: 'your ambitions.',
       subtitle:
-        'Zalyvo creates modern, fast, and professional websites to help businesses establish and grow their digital presence.',
+        'Nexivo creates modern, fast, and professional websites to help businesses establish and grow their digital presence.',
       ctaQuote: 'Build my website',
       ctaPortfolio: 'View our portfolio',
       pillDesign: 'Modern Design',
@@ -523,7 +535,7 @@ export const TRANSLATIONS = {
       mockNavPricing: 'Pricing',
       mockNavContact: 'Contact',
       mockNavBook: 'Book an appointment',
-      mockTag: 'Created by Zalyvo',
+      mockTag: 'Created by Nexivo',
       mockTitle: 'Your service excellence accessible in just one click.',
       mockSubtitle:
         'A custom design tailored to captivate your prospects and convert every visitor into a loyal customer.',
@@ -536,9 +548,9 @@ export const TRANSLATIONS = {
       mockCard3Title: 'Conversion Ready',
       mockCard3Sub: 'Direct phone & WhatsApp calls',
       mockCard3Badge: '100% Operational',
-      mockFooterLeft: '© Your Business — Powered by Zalyvo',
+      mockFooterLeft: '© Your Business — Powered by Nexivo',
       mockFooterRight: 'SSL & GDPR Certified',
-      codeArchitectureTitle: '// Modern Zalyvo Architecture',
+      codeArchitectureTitle: '// Modern Nexivo Architecture',
       codeSuccess: '✓ Deployment successful: Website configured, secured and live for your customers.',
     },
     services: {
@@ -580,14 +592,14 @@ export const TRANSLATIONS = {
       titlePart1: 'How would you like to handle',
       titleHighlight: 'your web hosting?',
       subtitle:
-        'At Zalyvo, you have total freedom to manage your hosting server yourself or delegate it to our turnkey service.',
+        'At Nexivo, you have total freedom to manage your hosting server yourself or delegate it to our turnkey service.',
       option1Badge: 'OPTION 1 — FULL FREEDOM',
       option1Title: 'I manage my own hosting',
       option1Desc: 'The client purchases and pays directly for hosting from their preferred provider (Hostinger, OVH, Infomaniak, Cloudways, etc.).',
       option1Note: 'The client purchases and pays directly for hosting from their chosen provider.',
-      option1Footer: 'Zalyvo deploys your website on your server at no extra charge.',
+      option1Footer: 'Nexivo deploys your website on your server at no extra charge.',
       option2Badge: 'OPTION 2 — TURNKEY SOLUTION',
-      option2Title: 'I choose a duration with Zalyvo',
+      option2Title: 'I choose a duration with Nexivo',
       option2Desc: 'The client chooses a hosting duration among our 6 options. Hosting fees are added to the order total and settled in cash according to agreed terms.',
       option2ChooseDuration: 'Select your hosting duration:',
       durations: {
@@ -600,8 +612,8 @@ export const TRANSLATIONS = {
         '48m': '48 months',
       },
       option2RatePrefix: 'Hosting rate',
-      option2Footer: 'Management, renewals, and support fully included by Zalyvo',
-      bottomQuoteHighlight: 'With Zalyvo, you decide freely: manage it yourself or let us manage everything smoothly.',
+      option2Footer: 'Management, renewals, and support fully included by Nexivo',
+      bottomQuoteHighlight: 'With Nexivo, you decide freely: manage it yourself or let us manage everything smoothly.',
       option1: {
         tag: 'OPTION 1',
         title: 'I manage my own hosting',
@@ -609,13 +621,13 @@ export const TRANSLATIONS = {
         desc: 'The client purchases and pays for their hosting directly with the provider of their choice (Hostinger, OVH, Infomaniak, Cloudways, etc.).',
         point1: 'You remain the sole owner of your hosting account and billing contract.',
         point2: 'You settle invoices directly with your chosen hosting company.',
-        point3: 'Zalyvo guides you and deploys your website onto your server.',
+        point3: 'Nexivo guides you and deploys your website onto your server.',
         badge: 'Direct provider billing',
       },
       option2: {
         tag: 'OPTION 2',
-        title: 'I choose a duration with Zalyvo',
-        subtitle: 'Turnkey package managed by Zalyvo',
+        title: 'I choose a duration with Nexivo',
+        subtitle: 'Turnkey package managed by Nexivo',
         desc: 'The client chooses a hosting duration among our 6 options. Hosting fees are added to the order total and settled in cash according to agreed terms.',
         selectDurationLabel: 'Select your hosting duration:',
         months: 'months',
@@ -630,7 +642,7 @@ export const TRANSLATIONS = {
       titlePart1: 'Your custom',
       titleHighlight: 'domain name',
       description:
-        'Zalyvo can handle the setup and configuration of your domain name according to your order. Domain conditions and renewal details are specified in your quote.',
+        'Nexivo can handle the setup and configuration of your domain name according to your order. Domain conditions and renewal details are specified in your quote.',
       point1: 'DNS Setup & Secure SSL Certificate',
       point2: 'Full transparency on renewal costs',
       boxLabel: 'Recommended extension',
@@ -648,7 +660,7 @@ export const TRANSLATIONS = {
       quoteBtn: 'Quote for this style',
       interactiveDemoBadge: 'Interactive Demo',
       badgeHD: 'HD Render',
-      modalBadge: 'Zalyvo Demo Project',
+      modalBadge: 'Nexivo Demo Project',
       modalDesktop: 'Desktop View',
       modalMobile: 'Mobile View',
       modalResponsiveBadge: '100% Responsive Design',
@@ -657,7 +669,7 @@ export const TRANSLATIONS = {
       modalCta: 'Request a quote for this style',
     },
     projectModal: {
-      demoBadge: 'ZALYVO DEMO PROJECT',
+      demoBadge: 'NEXIVO DEMO PROJECT',
       desktopView: 'Desktop View',
       mobileView: 'Mobile View',
       keyPoints: 'Key website highlights:',
@@ -665,13 +677,23 @@ export const TRANSLATIONS = {
       featuresTitle: 'Included features:',
       closeAria: 'Close',
     },
+    whyNexivo: {
+      badge: 'OUR COMMITMENTS',
+      titlePart1: 'Why choose',
+      titleHighlight: 'Nexivo?',
+      subtitle:
+        'A human-centric, technological, and pragmatic approach focused on the real-world success of your business.',
+      standardNexivo: 'Nexivo Excellence Standard',
+      standardZalyvo: 'Nexivo Excellence Standard',
+    },
     whyZalyvo: {
       badge: 'OUR COMMITMENTS',
       titlePart1: 'Why choose',
-      titleHighlight: 'Zalyvo?',
+      titleHighlight: 'Nexivo?',
       subtitle:
         'A human-centric, technological, and pragmatic approach focused on the real-world success of your business.',
-      standardZalyvo: 'Zalyvo Excellence Standard',
+      standardNexivo: 'Nexivo Excellence Standard',
+      standardZalyvo: 'Nexivo Excellence Standard',
     },
     faq: {
       badge: 'FREQUENTLY ASKED QUESTIONS',
@@ -693,15 +715,15 @@ export const TRANSLATIONS = {
       step1Title: '1. Choose your website plan',
       step1Sub: 'Official fixed creation price for website development only',
       step2Title: '2. Hosting preference',
-      step2Sub: 'Managed by yourself or subscribed through Zalyvo',
+      step2Sub: 'Managed by yourself or subscribed through Nexivo',
       step3SupplementsTitle: '3. Add-ons & Supplements (+200 DH each)',
       step3SupplementsSub: 'Integrate WhatsApp, TikTok, Instagram, Maps, etc. for 200 DH each',
       
       brandingTitle: 'Company Logo & Brand Name Creation',
-      brandingSub: 'Specify if the Zalyvo team should create your identity (logo + name) or if you already provide them.',
+      brandingSub: 'Specify if the Nexivo team should create your identity (logo + name) or if you already provide them.',
       brandingRequiredBadge: 'Mandatory Choice *',
       brandingOptionWithTitle: 'Yes — Create the Logo and Company Name',
-      brandingOptionWithDesc: 'The Zalyvo team creates and researches your official brand name and designs your custom professional logo.',
+      brandingOptionWithDesc: 'The Nexivo team creates and researches your official brand name and designs your custom professional logo.',
       brandingOptionWithPrice: '+500 DH',
       brandingOptionOwnTitle: 'No — I already have my Logo and Company Name',
       brandingOptionOwnDesc: 'You will directly provide your own existing logo and business name when the website is being built.',
@@ -717,8 +739,10 @@ export const TRANSLATIONS = {
       optClientDesc: 'The client purchases and pays for hosting directly with their chosen provider.',
       optClientPrice: 'Paid directly by the client to the hosting provider',
       
-      optZalyvoTitle: 'Option 2 — I choose a duration with Zalyvo',
-      optZalyvoDesc: 'The client chooses a duration among 1, 3, 6, 12, 24, or 48 months. The hosting fee is added to the total and paid in cash to Zalyvo.',
+      optNexivoTitle: 'Option 2 — I choose a duration with Nexivo',
+      optNexivoDesc: 'The client chooses a duration among 1, 3, 6, 12, 24, or 48 months. The hosting fee is added to the total and paid in cash to Nexivo.',
+      optZalyvoTitle: 'Option 2 — I choose a duration with Nexivo',
+      optZalyvoDesc: 'The client chooses a duration among 1, 3, 6, 12, 24, or 48 months. The hosting fee is added to the total and paid in cash to Nexivo.',
       
       labelLastName: 'Last Name *',
       phLastName: 'Your last name',
@@ -727,12 +751,12 @@ export const TRANSLATIONS = {
       labelCompany: 'Company / Brand Name *',
       labelCompanyOptional: 'Company / Brand Name (Optional)',
       phCompany: 'E.g.: My Business Ltd',
-      phCompanyOptional: 'Leave blank or enter ideas (Zalyvo handles this)',
-      companyOptionalHint: 'Creation option selected: Zalyvo will find your company name and design your logo.',
+      phCompanyOptional: 'Leave blank or enter ideas (Nexivo handles this)',
+      companyOptionalHint: 'Creation option selected: Nexivo will find your company name and design your logo.',
       labelEmail: 'Business Email Address *',
       phEmail: 'contact@your-business.com',
       labelWhatsApp: 'WhatsApp / Phone Number *',
-      phWhatsApp: '+216 25 152 905',
+      phWhatsApp: '+212 715 878 163',
       labelCountry: 'Country of residence / business',
       labelActivity: 'Business sector / industry *',
       phActivity: 'E.g.: Restaurant, Real Estate, E-commerce, Healthcare, Consulting...',
@@ -755,7 +779,7 @@ export const TRANSLATIONS = {
       recapExampleFiles: 'Examples / Attached files:',
       recapTotal: 'ORDER TOTAL:',
       recapPaymentMode: 'Payment terms:',
-      recapPaymentText: 'The client settles Zalyvo in cash according to agreed terms.',
+      recapPaymentText: 'The client settles Nexivo in cash according to agreed terms.',
       
       submitButton: 'Send my detailed order',
       submitLoading: 'Transmitting your order...',
@@ -763,13 +787,13 @@ export const TRANSLATIONS = {
       successTitle: 'Your order has been successfully recorded!',
       success24hBadge: 'We will respond within 24h',
       successText1: 'The full detailed description of your future website has been sent to our team at',
-      successText2: 'A Zalyvo advisor is analyzing your request and will get back to you within 24 hours with an action plan and quotation.',
+      successText2: 'A Nexivo advisor is analyzing your request and will get back to you within 24 hours with an action plan and quotation.',
       successRecapTitle: 'Summary of your transmitted request:',
       successFormulaLabel: 'Chosen plan:',
       successHostingLabel: 'Hosting option:',
       successTotalLabel: 'Estimated total:',
       successDescLabel: 'Your transmitted detailed description:',
-      successWhatsAppBar: 'Chat immediately on WhatsApp (+216 25 152 905)',
+      successWhatsAppBar: 'Chat immediately on WhatsApp (+212 715 878 163)',
       successMailtoBtn: 'Send a duplicate by email',
       successEditBtn: 'Modify or make another request',
     },
@@ -786,8 +810,8 @@ export const TRANSLATIONS = {
       locationLabel: 'Service Area',
       locationValue: 'Morocco & International (Remote)',
       directWhatsAppTitle: 'Chat directly on WhatsApp',
-      directWhatsAppDesc: 'Discuss your modifications right away with the Zalyvo team or place your order below.',
-      directWhatsAppBtn: 'Contact Zalyvo on WhatsApp',
+      directWhatsAppDesc: 'Discuss your modifications right away with the Nexivo team or place your order below.',
+      directWhatsAppBtn: 'Contact Nexivo on WhatsApp',
       fixedPriceNotice: 'Official Fixed Price: 1,500 DH',
       noHostingNotice: 'No mandatory hosting plan (you keep your own)',
       noSupplementsNotice: 'No required add-ons',
@@ -808,7 +832,7 @@ export const TRANSLATIONS = {
       formSending: 'Sending in progress...',
       successTitle: 'Change Pack order successfully received!',
       successBadge: 'Processed within 24h',
-      successDesc: 'Your order and current website files have been transmitted to hello.zalyvo@gmail.com. Our team will review your changes and reach out within 24h.',
+      successDesc: 'Your order and current website files have been transmitted to web.nexivo@gmail.com. Our team will review your changes and reach out within 24h.',
       openWhatsAppBtn: 'Validate immediately on WhatsApp',
       sendAnotherBtn: 'Submit another request',
     },
@@ -820,8 +844,8 @@ export const TRANSLATIONS = {
       subtitle:
         'Already have a website and want to revamp its design, pages, copy or modernize its layout? Entrust its complete modification to us for a flat 1,500 DH.',
       chatDirectTitle: 'Chat directly on WhatsApp',
-      chatDirectDesc: 'Discuss your modifications right away with the Zalyvo team or place your order below.',
-      chatDirectBtn: 'Contact Zalyvo on WhatsApp',
+      chatDirectDesc: 'Discuss your modifications right away with the Nexivo team or place your order below.',
+      chatDirectBtn: 'Contact Nexivo on WhatsApp',
       benefit1: 'Full revamp of an existing website (design, pages, copy, buttons)',
       benefit2: 'Fixed price of 1,500 DH with zero hidden fees',
       benefit3: 'No mandatory hosting plan: you keep your current hosting provider',
@@ -831,7 +855,7 @@ export const TRANSLATIONS = {
       successTitle: 'Change Pack order successfully received!',
       successBadge: 'Processed within 24h',
       successDesc:
-        'Your order and current website files have been transmitted to hello.zalyvo@gmail.com. Our team will review your changes and reach out within 24h.',
+        'Your order and current website files have been transmitted to web.nexivo@gmail.com. Our team will review your changes and reach out within 24h.',
       recapPrice: 'Fixed Change Pack price:',
       recapHosting: 'Hosting:',
       recapHostingFree: '0 DH (Kept at your existing provider)',
@@ -875,18 +899,18 @@ export const TRANSLATIONS = {
       officialSite: 'Official website:',
       navTitle: 'Navigation',
       contactTitle: 'Direct contact',
-      pricingNotice: 'Official Zalyvo prices: STARTER 2,999 DH (3 pages, 7d) | PRO 4,500 DH (7 pages, 11d) | BUSINESS 6,500 DH (10 pages, 14d). Add-ons 200 DH. Hosting separate.',
+      pricingNotice: 'Official Nexivo prices: STARTER 2,999 DH (3 pages, 7d) | PRO 4,500 DH (7 pages, 11d) | BUSINESS 6,500 DH (10 pages, 14d). Add-ons 200 DH. Hosting separate.',
       backToTop: 'Back to top',
     },
     floatingWhatsApp: {
-      invitation: 'Discuss your project with Zalyvo',
+      invitation: 'Discuss your project with Nexivo',
       ariaLabel: 'Chat on WhatsApp',
     },
     toast: {
       titleOrder: 'Website request submitted!',
       titleContact: 'Message successfully sent!',
       message: 'Your message has been sent and will be answered within 24h.',
-      teamNote: 'Transmitted to Zalyvo team (hello.zalyvo@gmail.com)',
+      teamNote: 'Transmitted to Nexivo team (web.nexivo@gmail.com)',
       closeAria: 'Close notification',
     },
   },
@@ -1012,7 +1036,7 @@ export function getTimelineData(lang: LanguageCode): TimelineStep[] {
   ];
 }
 
-export function getWhyZalyvoData(lang: LanguageCode): WhyFeature[] {
+export function getWhyNexivoData(lang: LanguageCode): WhyFeature[] {
   if (lang === 'en') {
     return [
       {
@@ -1027,7 +1051,7 @@ export function getWhyZalyvoData(lang: LanguageCode): WhyFeature[] {
       },
       {
         title: 'Support & Guidance',
-        description: 'Zalyvo accompanies you at every step of your project.',
+        description: 'Nexivo accompanies you at every step of your project.',
         icon: 'HeartHandshake',
       },
       {
@@ -1051,7 +1075,7 @@ export function getWhyZalyvoData(lang: LanguageCode): WhyFeature[] {
     },
     {
       title: 'Accompagnement',
-      description: 'Zalyvo vous accompagne pendant votre projet.',
+      description: 'Nexivo vous accompagne pendant votre projet.',
       icon: 'HeartHandshake',
     },
     {
@@ -1061,6 +1085,8 @@ export function getWhyZalyvoData(lang: LanguageCode): WhyFeature[] {
     },
   ];
 }
+
+export const getWhyZalyvoData = getWhyNexivoData;
 
 
 export function getDemoProjectsData(lang: LanguageCode): DemoProject[] {
@@ -1125,21 +1151,21 @@ export function getFaqData(lang: LanguageCode): FaqItem[] {
       {
         question: 'How much does a website cost?',
         answer:
-          'Our official rates for website creation are: STARTER: 2,999 DH (up to 3 pages, delivered within 7 days) | PRO: 4,500 DH (up to 7 pages, delivered within 11 days, most chosen plan) | BUSINESS: 6,500 DH (up to 10 pages, delivered within 14 days, tailored). Supplements (WhatsApp, TikTok, Instagram, etc.) are available for 200 DH each. Company logo and brand name creation by Zalyvo is available for 500 DH. Hosting is offered separately as an option during order configuration. You can also use the currency switcher at the top of the page to convert prices into EUR (€), USD ($), or GBP (£).',
+          'Our official rates for website creation are: STARTER: 2,999 DH (up to 3 pages, delivered within 7 days) | PRO: 4,500 DH (up to 7 pages, delivered within 11 days, most chosen plan) | BUSINESS: 6,500 DH (up to 10 pages, delivered within 14 days, tailored). Supplements (WhatsApp, TikTok, Instagram, etc.) are available for 200 DH each. Company logo and brand name creation by Nexivo is available for 500 DH. Hosting is offered separately as an option during order configuration. You can also use the currency switcher at the top of the page to convert prices into EUR (€), USD ($), or GBP (£).',
       },
       {
-        question: 'Is web hosting mandatory with Zalyvo?',
+        question: 'Is web hosting mandatory with Nexivo?',
         answer:
-          'No. You can purchase your web hosting directly from any provider of your choice. Alternatively, you may choose a hosting duration managed by Zalyvo and pay us directly in cash according to agreed terms.',
+          'No. You can purchase your web hosting directly from any provider of your choice. Alternatively, you may choose a hosting duration managed by Nexivo and pay us directly in cash according to agreed terms.',
       },
       {
         question: 'Can I choose my own hosting provider?',
         answer:
-          'Yes. You can select your own provider and pay them directly. Zalyvo will then install and configure your website on your server.',
+          'Yes. You can select your own provider and pay them directly. Nexivo will then install and configure your website on your server.',
       },
       {
         question: 'Can I pay in multiple installments?',
-        answer: 'Payment schedules and terms are agreed upon with Zalyvo when placing your order.',
+        answer: 'Payment schedules and terms are agreed upon with Nexivo when placing your order.',
       },
       {
         question: 'Does the website work on mobile phones?',
@@ -1152,21 +1178,21 @@ export function getFaqData(lang: LanguageCode): FaqItem[] {
     {
       question: 'Combien coûte un site ?',
       answer:
-        'Nos tarifs officiels pour la création du site sont : STARTER : 2 999 DH (jusqu’à 3 pages, rendu sous 7 jours) | PRO : 4 500 DH (jusqu’à 7 pages, rendu sous 11 jours, l’offre la plus choisie) | BUSINESS : 6 500 DH (jusqu’à 10 pages, rendu sous 14 jours, sur-mesure). Des suppléments (avoir son WhatsApp, son TikTok, son Instagram dans son site...) sont disponibles à 200 DH chacun. La création du logo et nom d’entreprise par Zalyvo est proposée à 500 DH. L’hébergement est proposé séparément au choix lors de la commande. Vous pouvez également utiliser le sélecteur de devise en haut de page pour convertir les prix en EUR (€), USD ($) ou GBP (£).',
+        'Nos tarifs officiels pour la création du site sont : STARTER : 2 999 DH (jusqu’à 3 pages, rendu sous 7 jours) | PRO : 4 500 DH (jusqu’à 7 pages, rendu sous 11 jours, l’offre la plus choisie) | BUSINESS : 6 500 DH (jusqu’à 10 pages, rendu sous 14 jours, sur-mesure). Des suppléments (avoir son WhatsApp, son TikTok, son Instagram dans son site...) sont disponibles à 200 DH chacun. La création du logo et nom d’entreprise par Nexivo est proposée à 500 DH. L’hébergement est proposé séparément au choix lors de la commande. Vous pouvez également utiliser le sélecteur de devise en haut de page pour convertir les prix en EUR (€), USD ($) ou GBP (£).',
     },
     {
-      question: 'L’hébergement est-il obligatoire avec Zalyvo ?',
+      question: 'L’hébergement est-il obligatoire avec Nexivo ?',
       answer:
-        'Non. Vous pouvez acheter votre hébergement directement auprès de l’hébergeur de votre choix. Vous pouvez également choisir une durée d’hébergement proposée par Zalyvo et nous régler directement en cash.',
+        'Non. Vous pouvez acheter votre hébergement directement auprès de l’hébergeur de votre choix. Vous pouvez également choisir une durée d’hébergement proposée par Nexivo et nous régler directement en cash.',
     },
     {
       question: 'Puis-je choisir mon propre hébergeur ?',
       answer:
-        'Oui. Vous pouvez choisir votre propre hébergeur et payer directement celui-ci. Zalyvo pourra ensuite installer votre site sur votre hébergement.',
+        'Oui. Vous pouvez choisir votre propre hébergeur et payer directement celui-ci. Nexivo pourra ensuite installer votre site sur votre hébergement.',
     },
     {
       question: 'Puis-je payer en plusieurs fois ?',
-      answer: 'Les modalités de paiement sont définies avec Zalyvo lors de la commande.',
+      answer: 'Les modalités de paiement sont définies avec Nexivo lors de la commande.',
     },
     {
       question: 'Le site fonctionne-t-il sur téléphone ?',

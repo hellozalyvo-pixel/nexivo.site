@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useWhatsAppChat } from '../context/WhatsAppChatContext';
-import { X, ShieldAlert, Trash2, Copy, Send, MailCheck } from 'lucide-react';
+import { X, ShieldAlert, Trash2, Copy, Send, MailCheck, Maximize2, Minimize2, ExternalLink, MessageCircle } from 'lucide-react';
 
 declare global {
   interface Window {
@@ -44,7 +44,12 @@ interface UnansweredItem {
   url: string;
 }
 
-const OWNER_EMAIL = 'nexivo.site@gmail.com';
+const OWNER_EMAIL = 'web.nexivo@gmail.com';
+const WHATSAPP_NUMBER = '+212 715 878 163';
+const WHATSAPP_RAW_NUMBER = '212715878163';
+const CONTACT_PHONE = '+212 715878163';
+const MESSAGE_NON_COMPRIS =
+  'Je ne peux pas répondre à cette question, je peux simplement vous donner des informations concernant NEXIVO.\n\nChez NEXIVO, nous créons des sites web modernes, rapides et professionnels. Dites-moi quelle est votre activité et je vous conseille la meilleure solution.';
 
 // --- CONFIG EMAILJS (100% fiable) ---
 const EMAILJS_SERVICE_ID = 'service_nexivo';
@@ -53,32 +58,34 @@ const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
 const SYSTEM_PROMPT = `
 Tu es NEXIVO, l'assistant officiel de l'agence web NEXIVO.
+Tu reprends TOUTES les informations du chatbot NEXIVO d'origine, mais tu réponds avec la MEME FAÇON de répondre que le chatbot RETALIA : pro, chaleureux, multilingue.
 
-Tu reponds a la place de ZALYVO, donc tu gardes TOUTES les informations de ZALYVO mais tu parles au nom de NEXIVO.
-
-Informations a garder de ZALYVO (mais tu dis NEXIVO) :
+INFORMATIONS OFFICIELLES NEXIVO :
 - Nom : NEXIVO - Agence Web (anciennement ZALYVO)
-- Services : creation de sites web modernes, rapides et professionnels. Sites vitrines, boutiques en ligne, catalogues produits, prise de rendez-vous, sites restaurant/cafe, portfolio. Design responsive parfait sur mobile, tablette et ordinateur. Optimisation vitesse et referencement Google. Integrations : formulaire, WhatsApp, Google Maps, reseaux sociaux, mise en ligne complete.
+- Site : nexivo.com (ou zalyvo.com)
+- Services : création de sites web modernes, rapides et professionnels. Sites vitrines, boutiques en ligne, catalogues produits, prise de rendez-vous, sites restaurant/café, portfolio. Design responsive parfait sur mobile, tablette et ordinateur. Optimisation vitesse et référencement Google. Intégrations : formulaire, WhatsApp, Google Maps, réseaux sociaux, mise en ligne complète.
 - Tarifs : 
-  STARTER 2 999 DH - Jusqu'a 3 pages - Livraison 7 jours
-  PRO 4 500 DH - Jusqu'a 7 pages - 11 jours - La plus demandee - Design sur mesure + SEO
-  BUSINESS 6 500 DH - Jusqu'a 10 pages - 14 jours - E-commerce possible + SEO complet
+  STARTER 2 999 DH - Jusqu'à 3 pages - Livraison 7 jours
+  PRO 4 500 DH - Jusqu'à 7 pages - 11 jours - La plus demandée - Design sur mesure + SEO
+  BUSINESS 6 500 DH - Jusqu'à 10 pages - 14 jours - E-commerce possible + SEO complet
   Pack Changement (modification site existant) 1 500 DH
-  Supplements 200 DH par element
+  Suppléments 200 DH par élément
   Logo + nom de marque 500 DH
-- Hebergement : Si client a deja hebergeur gratuit, sinon formule NEXIVO : 1 mois 199 DH, 3 mois 499 DH, 6 mois 899 DH, 12 mois 1590 DH, 24 mois 2890 DH, 48 mois 4990 DH.
-- Contact : WhatsApp / Telephone +216 25 152 905, Email nexivo.site@gmail.com, Site nexivo.com (ou zalyvo.com)
-- Horaires : 7j/7 et 24h/24, reponse en moins de 24h meme week-end.
+- Hébergement : Si client a déjà hébergeur gratuit, sinon formule NEXIVO : 1 mois 199 DH, 3 mois 499 DH, 6 mois 899 DH, 12 mois 1590 DH, 24 mois 2890 DH, 48 mois 4990 DH.
+- Contact IMPORTANT : 
+  - Numéro ZALYVO / NEXIVO : +212 715878163 (TOUJOURS donner celui-ci si on demande le numéro de ZALYVO ou NEXIVO)
+  - Email : web.nexivo@gmail.com
+  - Site : nexivo.com
+  - Ancien numéro +216 25 152 905 ne plus utiliser, remplacer par +212 715878163
+- Horaires : 7j/7 et 24h/24, réponse en moins de 24h même week-end.
 
-Consignes :
-1. Tu t'appelles NEXIVO. Tu dis "Chez NEXIVO, nous..." jamais "Chez ZALYVO". Tu es l'assistant NEXIVO.
-2. Tu parles comme un humain pro, tu vouvoies, sans emoji, francais naturel, professionnel mais chaleureux.
-3. Si on demande "quel site vous me proposez" : demande l'activite du client et propose le modele le plus adapte (vitrine, boutique, catalogue, RDV, restaurant...).
-4. Si on demande si on peut changer un site deja fait : dis Oui bien sur, Pack Changement 1500 DH, et demande le lien du site.
-5. Si horaires : 7j/7 24h/24.
-6. Si tu ne sais vraiment pas repondre ou question hors sujet (meteo, politique...), commence EXACTEMENT par [TRANSFERT_EQUIPE] puis phrase pro de transfert. Exemple : "[TRANSFERT_EQUIPE] Desole, je n'ai pas la reponse exacte a votre question. Je transmets votre demande a un membre de l'equipe NEXIVO, il vous repondra sur WhatsApp au +216 25 152 905 dans les 2 heures."
-7. Reponses courtes 2-5 phrases sauf tarifs ou tu peux detailler.
-8. Ne jamais dire que tu es une IA de Puter ou OpenAI. Tu es NEXIVO.
+FAÇON DE RÉPONDRE - STYLE RETALIA :
+1. Tu t'appelles NEXIVO. Tu dis "Chez NEXIVO, nous..." 
+2. Tu parles comme un humain pro, tu vouvoies, sans emoji excessif, français naturel, professionnel mais chaleureux.
+3. Tu peux répondre en français, arabe ou anglais selon la langue du client.
+4. Si on demande "quel site / quel service vous me proposez" : tu demandes l'activité du client et tu proposes la solution la plus adaptée.
+5. Si on demande numéro de téléphone, numéro de ZALYVO, contact, WhatsApp : tu réponds TOUJOURS +212 715878163
+6. Si la question n'a pas de réponse dans tes infos NEXIVO, tu dois OBLIGATOIREMENT terminer ta réponse par [TRANSFERT_EQUIPE]. Le système va envoyer un email en arrière-plan à web.nexivo@gmail.com mais le client NE DOIT PAS le savoir. Tu ne dois jamais dire "je transmets à l'équipe" ou "j'envoie un email". Tu dois dire exactement : "Je ne peux pas répondre à cette question, je peux simplement vous donner des informations concernant NEXIVO."
 `;
 
 export default function WhatsAppChatWidget() {
@@ -88,6 +95,7 @@ export default function WhatsAppChatWidget() {
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [unansweredList, setUnansweredList] = useState<UnansweredItem[]>([]);
   const [copiedNotification, setCopiedNotification] = useState(false);
 
@@ -128,7 +136,7 @@ export default function WhatsAppChatWidget() {
         {
           id: 'welcome',
           who: 'bot',
-          text: `Bonjour et bienvenue chez NEXIVO.\n\nJe suis NEXIVO, votre assistant intelligent.\n\nSouhaitez-vous creer un nouveau site ou modifier un site que vous avez deja ?`,
+          text: `Bonjour et bienvenue chez NEXIVO.\n\nJe suis l'assistant intelligent de NEXIVO, avec la même façon de répondre que RETALIA.\n\nComment puis-je vous aider aujourd'hui ?`,
           time: getTime(),
           showQuick: true,
         },
@@ -156,7 +164,7 @@ export default function WhatsAppChatWidget() {
     if (isOpen) {
       setTimeout(() => {
         inputRef.current?.focus();
-      }, 200);
+      }, 150);
     }
   }, [isOpen]);
 
@@ -204,15 +212,16 @@ export default function WhatsAppChatWidget() {
       // safe fallback
     }
 
-    const subject = `NEXIVO - Question non traitee - ${heureCourte}`;
-    const message = `NOUVELLE DEMANDE CLIENT NON TRAITEE
+    const subject = `NEXIVO - Question non traitée - ${heureCourte}`;
+    const message = `NOUVELLE DEMANDE CLIENT NON TRAITÉE - NEXIVO
 
 Heure : ${heure}
 Question : ${clientQuestion}
 Site : ${window.location.href}
 Navigateur : ${navigator.userAgent}
 
-A repondre sur WhatsApp +216 25 152 905`;
+À répondre sur WhatsApp +212 715 878 163
+Email : ${OWNER_EMAIL}`;
 
     console.log('Tentative envoi email pour :', clientQuestion);
 
@@ -231,7 +240,7 @@ A repondre sur WhatsApp +216 25 152 905`;
           heure: heure,
           from_name: 'NEXIVO Bot',
         });
-        console.log('Email envoye via EmailJS');
+        console.log('Email envoyé via EmailJS');
         return true;
       } catch (e) {
         console.log('EmailJS erreur', e);
@@ -247,7 +256,7 @@ A repondre sur WhatsApp +216 25 152 905`;
       formData.append('heure', heure);
       formData.append('_captcha', 'false');
       await fetch(`https://formsubmit.co/${OWNER_EMAIL}`, { method: 'POST', body: formData });
-      console.log('Email envoye via FormSubmit FormData');
+      console.log('Email envoyé via FormSubmit FormData');
     } catch (e) {
       console.log('FormSubmit FormData erreur', e);
     }
@@ -265,7 +274,7 @@ A repondre sur WhatsApp +216 25 152 905`;
           _captcha: 'false',
         }),
       });
-      console.log('Email envoye via FormSubmit AJAX');
+      console.log('Email envoyé via FormSubmit AJAX');
     } catch (e) {
       console.log('FormSubmit AJAX erreur', e);
     }
@@ -288,7 +297,7 @@ A repondre sur WhatsApp +216 25 152 905`;
         new Date().toLocaleString()
     );
     alert(
-      "Test envoye a nexivo.site@gmail.com ! Verifie ta boite et tes SPAMS dans 1-2 minutes. Si rien, ton adblocker bloque. Desactive-le et reteste."
+      "Test envoyé à web.nexivo@gmail.com ! Vérifiez votre boîte et vos SPAMS dans 1-2 minutes."
     );
     loadUnanswered();
   };
@@ -317,14 +326,14 @@ A repondre sur WhatsApp +216 25 152 905`;
           stream: false,
         });
         if (response && response.message && response.message.content) {
-          let answer = response.message.content;
+          const answer = response.message.content;
           historyRef.current.push({ role: 'assistant', content: answer });
           if (historyRef.current.length > 12) {
             historyRef.current = [historyRef.current[0]].concat(historyRef.current.slice(-10));
           }
           if (answer.includes('[TRANSFERT_EQUIPE]')) {
-            answer = answer.replace('[TRANSFERT_EQUIPE]', '').trim();
             sendEmailToOwner(userText);
+            return MESSAGE_NON_COMPRIS;
           }
           return answer;
         }
@@ -333,7 +342,7 @@ A repondre sur WhatsApp +216 25 152 905`;
       }
     }
 
-    // 2. Server API fallback
+    // 2. Server API fallback (Gemini 3.6 Flash)
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -347,14 +356,14 @@ A repondre sur WhatsApp +216 25 152 905`;
       if (res.ok) {
         const data = await res.json();
         if (data && data.answer && typeof data.answer === 'string') {
-          let answer = data.answer.trim();
+          const answer = data.answer.trim();
           historyRef.current.push({ role: 'assistant', content: answer });
           if (historyRef.current.length > 12) {
             historyRef.current = [historyRef.current[0]].concat(historyRef.current.slice(-10));
           }
           if (answer.includes('[TRANSFERT_EQUIPE]')) {
-            answer = answer.replace('[TRANSFERT_EQUIPE]', '').trim();
             sendEmailToOwner(userText);
+            return MESSAGE_NON_COMPRIS;
           }
           return answer;
         }
@@ -363,29 +372,38 @@ A repondre sur WhatsApp +216 25 152 905`;
       // offline fallback
     }
 
-    // 3. Fallback immédiat et alerte par email
+    // 3. Fallback immédiat et alerte silencieuse par email
     const lower = userText.toLowerCase();
-    if (lower.includes('horaire') || lower.includes('heure') || lower.includes('ouvert')) {
-      return 'Nous sommes ouverts 7j/7 et 24h/24 chez NEXIVO. Vous pouvez nous ecrire a tout moment sur WhatsApp au +216 25 152 905.';
+    if (lower.includes('zalyvo') && (lower.includes('num') || lower.includes('tel') || lower.includes('whatsapp') || lower.includes('contact'))) {
+      return `Le numéro de ZALYVO / NEXIVO est : ${CONTACT_PHONE}\nVous pouvez nous écrire sur WhatsApp à tout moment, nous répondons 7j/7.`;
     }
-    if (lower.includes('changer') || lower.includes('modif') || lower.includes('deja')) {
-      return "Oui bien sur, chez NEXIVO nous pouvons modifier votre site deja existant. C'est le Pack Changement a 1 500 DH : refonte design, modifications textes et images, optimisation mobile. Envoyez-nous le lien de votre site.";
+    if (lower.includes('numéro') || lower.includes('numero') || lower.includes('téléphone') || lower.includes('telephone') || lower.includes('whatsapp') || lower.includes('contact')) {
+      return `Vous pouvez nous contacter directement chez NEXIVO :\n\nWhatsApp / Téléphone : ${CONTACT_PHONE}\nEmail : ${OWNER_EMAIL}\nSite : nexivo.com\n\nNous vous répondons très rapidement, 7j/7.`;
     }
-    if (lower.includes('quel site') || lower.includes('propose')) {
-      return 'Tout depend de votre activite. Chez NEXIVO nous proposons site vitrine pour presenter votre entreprise, catalogue, boutique en ligne ou site avec prise de rendez-vous. Dites-moi quelle est votre activite et je vous conseille le modele le plus adapte.';
+    if (lower.includes('tarif') || lower.includes('prix')) {
+      return `Voici nos formules chez NEXIVO :\n\nSTARTER 2 999 DH - 3 pages - 7 jours\nPRO 4 500 DH - 7 pages - 11 jours (la plus demandée)\nBUSINESS 6 500 DH - 10 pages - 14 jours - E-commerce possible\n\nPack Changement 1 500 DH pour modifier un site existant.\nQuelle est votre activité ?`;
     }
 
     sendEmailToOwner(userText);
-    return "Desole, je n'ai pas la reponse exacte a votre question. Je transmets votre demande a un membre de l'equipe NEXIVO, il vous repondra sur WhatsApp au +216 25 152 905 dans les 2 heures.";
+    return MESSAGE_NON_COMPRIS;
   };
 
   const handleUser = async (txt: string) => {
     const trimmed = txt.trim();
     if (!trimmed) return;
 
-    if (trimmed.toLowerCase().includes('admin nexivo') || trimmed.toLowerCase().includes('admin zalyvo')) {
+    if (trimmed.toLowerCase().includes('admin nexivo')) {
       loadUnanswered();
       setShowAdminPanel(true);
+      return;
+    }
+
+    // Si clic direct sur WhatsApp
+    if (trimmed === '__OPEN_WHATSAPP__') {
+      const url = `https://wa.me/${WHATSAPP_RAW_NUMBER}?text=${encodeURIComponent(
+        "Bonjour NEXIVO, j'aimerais échanger avec votre équipe pour un projet de site web."
+      )}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
       return;
     }
 
@@ -415,10 +433,10 @@ A repondre sur WhatsApp +216 25 152 905`;
   };
 
   const quickBtns: [string, string][] = [
-    ['Quel site pour moi ?', 'Quel site vous me proposez ?'],
+    ['Nos services', 'Quels services proposez-vous ?'],
     ['Tarifs', 'Quels sont vos tarifs ?'],
-    ['Modifier', 'Vous pouvez changer un site deja fait ?'],
-    ['Admin', 'admin nexivo'],
+    ['Numéro', 'Quel est votre numéro ?'],
+    ['Devis', 'Je veux un devis'],
   ];
 
   if (!isOpen && !showAdminPanel) return null;
@@ -459,7 +477,7 @@ A repondre sur WhatsApp +216 25 152 905`;
 
             <button
               onClick={testEmail}
-              className="w-full sm:w-auto px-4 py-2 bg-[#00a884] hover:bg-[#008f70] text-white rounded-lg text-xs font-semibold cursor-pointer transition-colors mb-3 flex items-center justify-center gap-1.5 shadow-sm"
+              className="w-full sm:w-auto px-4 py-2 bg-[#0d2a54] hover:bg-[#071933] text-white rounded-lg text-xs font-semibold cursor-pointer transition-colors mb-3 flex items-center justify-center gap-1.5 shadow-sm"
             >
               <MailCheck className="w-4 h-4" />
               Tester envoi email maintenant
@@ -468,7 +486,7 @@ A repondre sur WhatsApp +216 25 152 905`;
             <div id="adminList" className="mt-2.5 space-y-2 max-h-[44vh] overflow-y-auto pr-1">
               {unansweredList.length === 0 ? (
                 <div className="text-center py-8 text-xs text-slate-400 bg-slate-50 rounded-xl border border-dashed border-slate-200">
-                  Aucune question non traitée. Pour tester, écris une question hors sujet comme "vous faites des apps mobiles ?".
+                  Aucune question non traitée pour le moment.
                 </div>
               ) : (
                 unansweredList.map((item, i) => (
@@ -513,224 +531,151 @@ A repondre sur WhatsApp +216 25 152 905`;
         </div>
       )}
 
-      {/* WhatsApp Phone Mockup Overlay */}
+      {/* Floating Docked WhatsApp Chatbot Widget on the Right */}
       {isOpen && (
         <div
-          id="nexivo-ia-assistant-overlay"
-          className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/60 backdrop-blur-[2px]"
+          id="nexivo-ia-assistant-container"
+          className={
+            isExpanded
+              ? 'fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200'
+              : 'fixed bottom-22 sm:bottom-24 right-3 sm:right-6 z-50 flex flex-col items-end pointer-events-auto animate-in slide-in-from-bottom-4 duration-300'
+          }
           onClick={(e) => {
-            if (e.target === e.currentTarget) {
+            if (isExpanded && e.target === e.currentTarget) {
               closeChat();
             }
           }}
         >
-          <style>{`
-            .phone {
-              width: 440px;
-              max-width: 100%;
-              height: 92vh;
-              background: #efeae2;
-              border-radius: 28px;
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              box-shadow: 0 20px 60px rgba(0,0,0,.5);
-              border: 8px solid #1f2c34;
-            }
-            .header {
-              background: #202c33;
-              color: #fff;
-              padding: 12px 14px;
-              display: flex;
-              align-items: center;
-              gap: 12px;
-            }
-            .avatar {
-              width: 42px;
-              height: 42px;
-              background: #00a884;
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-weight: 800;
-              font-size: 18px;
-              color: #fff;
-              flex-shrink: 0;
-            }
-            .chat {
-              flex: 1;
-              overflow-y: auto;
-              padding: 14px;
-              background-color: #efeae2;
-              background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
-            }
-            .bubble {
-              max-width: 85%;
-              padding: 11px 14px;
-              border-radius: 8px;
-              margin-bottom: 10px;
-              font-size: 14px;
-              line-height: 1.6;
-              white-space: pre-wrap;
-              word-break: break-word;
-            }
-            .bot {
-              background: #fff;
-              color: #111b21;
-              border-top-left-radius: 0;
-              box-shadow: 0 1px .5px rgba(0,0,0,.13);
-            }
-            .user {
-              background: #d9fdd3;
-              color: #111b21;
-              margin-left: auto;
-              border-top-right-radius: 0;
-            }
-            .time {
-              font-size: 10px;
-              color: #667781;
-              float: right;
-              margin-left: 10px;
-              margin-top: 6px;
-            }
-            .quick {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 6px;
-              margin: 8px 0;
-            }
-            .qbtn {
-              background: #fff;
-              border: 1.2px solid #00a884;
-              color: #00a884;
-              padding: 7px 13px;
-              border-radius: 18px;
-              font-size: 12px;
-              cursor: pointer;
-              font-weight: 600;
-              transition: all 0.2s;
-            }
-            .qbtn:hover {
-              background: #00a884;
-              color: #fff;
-            }
-            .inputbar {
-              background: #f0f2f5;
-              padding: 8px 10px;
-              display: flex;
-              gap: 8px;
-              align-items: center;
-            }
-            .inp {
-              flex: 1;
-              background: #fff;
-              border: none;
-              border-radius: 22px;
-              padding: 12px 15px;
-              outline: none;
-              font-size: 14px;
-              color: #111b21;
-            }
-            .send {
-              width: 42px;
-              height: 42px;
-              background: #00a884;
-              border: none;
-              border-radius: 50%;
-              color: #fff;
-              cursor: pointer;
-              font-size: 18px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-weight: bold;
-              transition: background 0.2s;
-            }
-            .send:hover {
-              background: #008f70;
-            }
-            .typing {
-              display: flex;
-              gap: 4px;
-              padding: 12px 14px;
-              background: #fff;
-              border-radius: 8px;
-              width: 62px;
-              margin-bottom: 8px;
-            }
-            .typing span {
-              width: 6px;
-              height: 6px;
-              background: #999;
-              border-radius: 50%;
-              animation: b 1.4s infinite;
-            }
-            .typing span:nth-child(2) {
-              animation-delay: .2s;
-            }
-            .typing span:nth-child(3) {
-              animation-delay: .4s;
-            }
-            @keyframes b {
-              0%, 60%, 100% { opacity: .3; }
-              30% { opacity: 1; }
-            }
-          `}</style>
+          {/* Main WhatsApp Phone Window */}
+          <div
+            className={`flex flex-col bg-[#efeae2] overflow-hidden shadow-2xl transition-all duration-300 border border-[#1f2c34]/60 ${
+              isExpanded
+                ? 'w-[450px] max-w-[95%] h-[90vh] max-h-[820px] rounded-3xl border-8 border-[#1f2c34]'
+                : 'w-[390px] sm:w-[410px] max-w-[calc(100vw-24px)] h-[580px] max-h-[calc(100vh-120px)] rounded-2xl sm:rounded-3xl shadow-emerald-950/40'
+            }`}
+          >
+            {/* Header: Authentic WhatsApp Dark Teal/Grey Theme */}
+            <div className="bg-[#202c33] text-white px-3.5 py-3 flex items-center justify-between gap-3 shadow-md z-10 border-b border-white/5">
+              {/* Avatar + Info */}
+              <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-full bg-[#0d2a54] flex items-center justify-center font-black text-white text-lg shadow-sm border border-blue-400/30 flex-shrink-0">
+                    N
+                  </div>
+                  <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#25D366] border-2 border-[#202c33]" />
+                </div>
 
-          <div className="phone">
-            {/* Header */}
-            <div className="header">
-              <div className="avatar">Z</div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 700, fontSize: '15px' }}>NEXIVO - Assistant</div>
-                <div style={{ fontSize: '11px', color: '#25D366' }}>
-                  Alerte email active - Tape admin nexivo pour voir
+                <div className="truncate">
+                  <div className="font-bold text-sm tracking-wide text-white flex items-center gap-1.5 truncate">
+                    <span>NEXIVO - Assistant</span>
+                    <span className="inline-block px-1.5 py-0.2 text-[9px] font-semibold bg-emerald-500/20 text-emerald-400 rounded border border-emerald-500/30">
+                      IA 24/7
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-[#25D366] flex items-center gap-1 font-medium truncate">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse inline-block" />
+                    <span>En ligne - Réponse rapide 7j/7</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Close Button */}
-              <button
-                onClick={closeChat}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#8696a0',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '6px',
-                  borderRadius: '50%',
-                }}
-                title="Fermer"
-                aria-label="Fermer"
-              >
-                <X size={20} className="hover:text-white transition-colors" />
-              </button>
+              {/* Action Buttons in Header */}
+              <div className="flex items-center gap-1 text-slate-300">
+                {/* Direct WhatsApp link */}
+                <a
+                  href={`https://wa.me/${WHATSAPP_RAW_NUMBER}?text=${encodeURIComponent(
+                    "Bonjour NEXIVO, j'aimerais échanger avec votre équipe pour un projet de site web."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 rounded-lg text-emerald-400 hover:text-white hover:bg-white/10 transition-colors"
+                  title="Ouvrir sur WhatsApp direct"
+                  aria-label="Ouvrir sur WhatsApp direct"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current" />
+                </a>
+
+                {/* Standalone page /whatsapp */}
+                <a
+                  href="/whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors hidden sm:inline-flex"
+                  title="Ouvrir la page dédiée /whatsapp"
+                  aria-label="Ouvrir la page dédiée"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                {/* Expand / Minimize toggle */}
+                <button
+                  type="button"
+                  onClick={() => setIsExpanded((prev) => !prev)}
+                  className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors hidden sm:inline-flex cursor-pointer"
+                  title={isExpanded ? 'Réduire dans le coin' : 'Agrandir au centre'}
+                  aria-label={isExpanded ? 'Réduire' : 'Agrandir'}
+                >
+                  {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+                </button>
+
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={closeChat}
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer ml-0.5"
+                  title="Fermer"
+                  aria-label="Fermer le chat"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
-            {/* Chat Body */}
-            <div className="chat" id="chat" ref={chatRef}>
+            {/* Chat Body with Authentic WhatsApp Doodle Pattern */}
+            <div
+              ref={chatRef}
+              id="nexivo-chat-scroll"
+              className="flex-1 overflow-y-auto p-3.5 space-y-3"
+              style={{
+                backgroundColor: '#efeae2',
+                backgroundImage: `url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')`,
+                backgroundRepeat: 'repeat',
+                backgroundSize: '380px auto',
+              }}
+            >
+              {/* Date stamp notification */}
+              <div className="text-center my-2">
+                <span className="inline-block px-3 py-1 rounded-lg bg-white/70 backdrop-blur-sm text-[11px] font-semibold text-slate-600 shadow-sm border border-slate-200/50">
+                  Assistant Officiel NEXIVO • En ligne
+                </span>
+              </div>
+
               {messages.map((item) => (
                 <React.Fragment key={item.id}>
-                  <div className={`bubble ${item.who === 'user' ? 'user' : 'bot'}`}>
-                    {item.text.split('\n').map((line, lIdx) => (
-                      <React.Fragment key={lIdx}>
-                        {line}
-                        {lIdx < item.text.split('\n').length - 1 && <br />}
-                      </React.Fragment>
-                    ))}
-                    <span className="time">{item.time}</span>
+                  <div
+                    className={`max-w-[85%] p-3 rounded-2xl text-[13.5px] leading-relaxed break-words shadow-sm relative animate-in fade-in-50 duration-200 ${
+                      item.who === 'user'
+                        ? 'bg-[#d9fdd3] text-[#111b21] ml-auto rounded-tr-none border border-emerald-300/30'
+                        : 'bg-white text-[#111b21] mr-auto rounded-tl-none border border-slate-200/60'
+                    }`}
+                  >
+                    <div className="whitespace-pre-wrap font-normal">
+                      {item.text}
+                    </div>
+                    <div className="text-[10px] text-slate-400 text-right mt-1.5 font-medium select-none">
+                      {item.time}
+                    </div>
                   </div>
 
+                  {/* Interactive Quick Action Buttons */}
                   {item.showQuick && item.who === 'bot' && (
-                    <div className="quick">
+                    <div className="flex flex-wrap gap-1.5 my-2 animate-in fade-in duration-300">
                       {quickBtns.map((b) => (
                         <button
                           key={b[1]}
-                          className="qbtn"
+                          type="button"
                           onClick={() => handleUser(b[1])}
+                          className="px-3 py-1.5 rounded-full text-xs font-semibold bg-white/95 hover:bg-[#0d2a54] text-[#0d2a54] hover:text-white border border-[#0d2a54]/40 hover:border-[#0d2a54] transition-all duration-200 shadow-sm cursor-pointer active:scale-95"
                         >
                           {b[0]}
                         </button>
@@ -740,31 +685,60 @@ A repondre sur WhatsApp +216 25 152 905`;
                 </React.Fragment>
               ))}
 
+              {/* Animated Typing Indicator */}
               {isTyping && (
-                <div className="typing" id="typing">
-                  <span />
-                  <span />
-                  <span />
+                <div className="bg-white p-3 rounded-2xl rounded-tl-none w-16 shadow-sm border border-slate-200/60 flex items-center justify-center gap-1.5 animate-pulse">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
               )}
             </div>
 
-            {/* Input Bar */}
-            <div className="inputbar">
-              <input
-                ref={inputRef}
-                id="inp"
-                className="inp"
-                placeholder="Posez votre question..."
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleUser(inputText);
-                }}
-              />
-              <button className="send" onClick={() => handleUser(inputText)} aria-label="Envoyer">
-                &gt;
-              </button>
+            {/* Bottom Input Bar: Authentic WhatsApp styling */}
+            <div className="bg-[#f0f2f5] p-2.5 border-t border-slate-300/60 flex flex-col gap-1.5 shadow-inner">
+              <div className="flex items-center gap-2">
+                <input
+                  ref={inputRef}
+                  id="nexivo-chat-input"
+                  className="flex-1 bg-white border border-slate-300/80 rounded-full px-4 py-2.5 text-[13.5px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00a884] shadow-sm transition-all"
+                  placeholder="Posez votre question à NEXIVO..."
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleUser(inputText);
+                  }}
+                />
+
+                <button
+                  type="button"
+                  onClick={() => handleUser(inputText)}
+                  disabled={!inputText.trim()}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-200 flex-shrink-0 cursor-pointer shadow-md ${
+                    inputText.trim()
+                      ? 'bg-[#0d2a54] hover:bg-[#071933] scale-100'
+                      : 'bg-slate-300 text-slate-500 cursor-not-allowed'
+                  }`}
+                  aria-label="Envoyer"
+                >
+                  <Send className="w-4 h-4 ml-0.5" />
+                </button>
+              </div>
+
+              {/* Direct WhatsApp Callout strip */}
+              <div className="flex items-center justify-between px-1 text-[11px] text-slate-500">
+                <span className="truncate">Réponse IA immédiate</span>
+                <a
+                  href={`https://wa.me/${WHATSAPP_RAW_NUMBER}?text=${encodeURIComponent(
+                    "Bonjour NEXIVO, j'aimerais échanger directement sur WhatsApp avec votre équipe."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-700 hover:text-emerald-800 font-semibold hover:underline inline-flex items-center gap-1"
+                >
+                  <span>WhatsApp direct : {WHATSAPP_NUMBER}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 interface FinalCtaProps {
   onOpenQuote: () => void;
@@ -27,19 +28,24 @@ export default function FinalCta({ onOpenQuote }: FinalCtaProps) {
             id="final-cta-title"
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight font-display mb-6"
           >
-            {t.finalCta.titlePart1}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-200">
+            <TextReveal as="span" effect="words" className="inline-block mr-2">
+              {t.finalCta.titlePart1}
+            </TextReveal>{' '}
+            <TextReveal as="span" effect="glow" delay={0.12} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-200 inline-block">
               {t.finalCta.titleHighlight}
-            </span>
+            </TextReveal>
           </h2>
 
           {/* Text */}
-          <p
+          <TextReveal
+            as="p"
+            effect="lift"
+            delay={0.1}
             id="final-cta-text"
             className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             {t.finalCta.subtitle}
-          </p>
+          </TextReveal>
 
           {/* Button */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

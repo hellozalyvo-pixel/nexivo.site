@@ -82,8 +82,8 @@ export default function RatingProposalModal({
       setSubmitted(true);
       showNotification(
         language === 'fr'
-          ? `Merci pour votre note de ${stars}/5 étoiles ! Elle a bien été envoyée à nexivo.site@gmail.com.`
-          : `Thank you for your ${stars}/5 star rating! It was sent to nexivo.site@gmail.com.`,
+          ? `Merci pour votre note de ${stars}/5 étoiles ! Elle a bien été envoyée à web.nexivo@gmail.com.`
+          : `Thank you for your ${stars}/5 star rating! It was sent to web.nexivo@gmail.com.`,
         {
           title: language === 'fr' ? 'Note transmise !' : 'Rating submitted!',
           duration: 6000,
@@ -143,8 +143,8 @@ export default function RatingProposalModal({
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 max-w-sm mx-auto">
               {language === 'fr'
-                ? 'Votre note a été transmise directement à nexivo.site@gmail.com. Votre avis nous aide à offrir un service d’élite.'
-                : 'Your rating was sent directly to nexivo.site@gmail.com. Your feedback helps us deliver elite service.'}
+                ? 'Votre note a été transmise directement à web.nexivo@gmail.com. Votre avis nous aide à offrir un service d’élite.'
+                : 'Your rating was sent directly to web.nexivo@gmail.com. Your feedback helps us deliver elite service.'}
             </p>
 
             <button
@@ -177,8 +177,8 @@ export default function RatingProposalModal({
 
             <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
               {language === 'fr'
-                ? 'Votre commande a bien été enregistrée ! Prenez 5 secondes pour nous attribuer une note. Elle sera envoyée à nexivo.site@gmail.com :'
-                : 'Your order has been recorded! Take 5 seconds to rate your experience. It will be sent to nexivo.site@gmail.com:'}
+                ? 'Votre commande a bien été enregistrée ! Prenez 5 secondes pour nous attribuer une note. Elle sera envoyée à web.nexivo@gmail.com :'
+                : 'Your order has been recorded! Take 5 seconds to rate your experience. It will be sent to web.nexivo@gmail.com:'}
             </p>
 
             {/* Interactive Stars Selector */}
@@ -251,7 +251,7 @@ export default function RatingProposalModal({
               <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
               <span>
                 {language === 'fr' ? 'Destinataire officiel :' : 'Official recipient:'}{' '}
-                <strong className="text-blue-300">nexivo.site@gmail.com</strong>
+                <strong className="text-blue-300">web.nexivo@gmail.com</strong>
               </span>
             </div>
 

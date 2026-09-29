@@ -66,7 +66,7 @@ export default function Navbar({ activePage, onNavigate, onOpenQuote }: NavbarPr
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-[1.5px] shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all duration-300">
               <div className="w-full h-full bg-[#07080f] rounded-[10px] flex items-center justify-center">
                 <span className="font-extrabold text-xl tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                  Z
+                  N
                 </span>
               </div>
             </div>

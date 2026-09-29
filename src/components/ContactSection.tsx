@@ -5,6 +5,7 @@ import { useToast } from '../context/ToastContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useWhatsAppChat } from '../context/WhatsAppChatContext';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 import {
   Send,
   MessageCircle,
@@ -143,8 +144,8 @@ export default function ContactSection() {
   const generateGeneralWhatsAppUrl = () => {
     const isFr = language === 'fr';
     const text = isFr
-      ? `Bonjour Zalyvo ! Je souhaite échanger avec vous à propos d'un projet de site web ou d'une modification.`
-      : `Hello Zalyvo! I would like to discuss a website project or site modification with you.`;
+      ? `Bonjour Nexivo ! Je souhaite échanger avec vous à propos d'un projet de site web ou d'une modification.`
+      : `Hello Nexivo! I would like to discuss a website project or site modification with you.`;
     return `https://wa.me/${SITE_CONFIG.contact.whatsappRawNumber}?text=${encodeURIComponent(text)}`;
   };
 
@@ -152,7 +153,7 @@ export default function ContactSection() {
   const generateChangeWhatsAppUrl = () => {
     const isFr = language === 'fr';
     const text = isFr
-      ? `Bonjour Zalyvo ! Je viens de commander le *Pack Changement (1 500 DH)* pour mon site existant :%0A%0A*RÉCAPITULATIF DE COMMANDE*%0A- *Client* : ${encodeURIComponent(
+      ? `Bonjour Nexivo ! Je viens de commander le *Pack Changement (1 500 DH)* pour mon site existant :%0A%0A*RÉCAPITULATIF DE COMMANDE*%0A- *Client* : ${encodeURIComponent(
           firstName + ' ' + lastName
         )}%0A- *Entreprise* : ${encodeURIComponent(company)}%0A- *Email* : ${encodeURIComponent(
           email
@@ -163,7 +164,7 @@ export default function ContactSection() {
         )}%0A- *Mode de règlement* : Paiement en cash à la validation%0A%0A*Détail des changements souhaités* :%0A${encodeURIComponent(
           changeDescription
         )}%0A%0APouvez-vous me recontacter pour lancer les modifications sous 24h ? Merci !`
-      : `Hello Zalyvo! I have just ordered the *Change Pack (1,500 DH)* for my existing website:%0A%0A*ORDER SUMMARY*%0A- *Client*: ${encodeURIComponent(
+      : `Hello Nexivo! I have just ordered the *Change Pack (1,500 DH)* for my existing website:%0A%0A*ORDER SUMMARY*%0A- *Client*: ${encodeURIComponent(
           firstName + ' ' + lastName
         )}%0A- *Company*: ${encodeURIComponent(company)}%0A- *Email*: ${encodeURIComponent(
           email
@@ -203,15 +204,17 @@ export default function ContactSection() {
               id="pack-changement-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              {t.packChange.titlePart1}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-purple-400">
+              <TextReveal as="span" effect="words" className="inline-block mr-2">
+                {t.packChange.titlePart1}
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-purple-400 inline-block">
                 {t.packChange.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
 
-            <p id="pack-changement-subtitle" className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
               {t.packChange.subtitle}
-            </p>
+            </TextReveal>
           </div>
         </ScrollReveal>
 
@@ -247,7 +250,7 @@ export default function ContactSection() {
                   className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-xl shadow-emerald-600/30 transition-all cursor-pointer active:scale-[0.99]"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>{language === 'fr' ? 'Échanger avec l’Assistant Zalyvo' : 'Chat with Zalyvo Assistant'}</span>
+                  <span>{language === 'fr' ? 'Échanger avec l’Assistant Nexivo' : 'Chat with Nexivo Assistant'}</span>
                 </button>
 
                 {/* Contact direct coordonnees */}
@@ -259,7 +262,7 @@ export default function ContactSection() {
                       onClick={() => openChat()}
                       className="hover:text-emerald-400 transition-colors text-left cursor-pointer"
                     >
-                      {language === 'fr' ? 'Assistant WhatsApp ZALYVO' : 'ZALYVO WhatsApp Assistant'}
+                      {language === 'fr' ? 'Assistant WhatsApp NEXIVO' : 'NEXIVO WhatsApp Assistant'}
                     </button>
                   </div>
                   <div className="flex items-center gap-2.5">

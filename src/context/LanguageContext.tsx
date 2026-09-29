@@ -5,6 +5,7 @@ import {
   TRANSLATIONS,
   getServicesData,
   getTimelineData,
+  getWhyNexivoData,
   getWhyZalyvoData,
   getDemoProjectsData,
   getFaqData,
@@ -21,7 +22,8 @@ interface LanguageContextType {
   t: typeof TRANSLATIONS.fr;
   servicesData: ReturnType<typeof getServicesData>;
   timelineData: ReturnType<typeof getTimelineData>;
-  whyData: ReturnType<typeof getWhyZalyvoData>;
+  whyData: ReturnType<typeof getWhyNexivoData>;
+  whyNexivoData: ReturnType<typeof getWhyNexivoData>;
   whyZalyvoData: ReturnType<typeof getWhyZalyvoData>;
   demoProjectsData: ReturnType<typeof getDemoProjectsData>;
   faqData: ReturnType<typeof getFaqData>;
@@ -87,6 +89,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         servicesData,
         timelineData,
         whyData,
+        whyNexivoData: whyData,
         whyZalyvoData: whyData,
         demoProjectsData,
         faqData,

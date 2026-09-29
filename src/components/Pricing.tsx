@@ -21,6 +21,7 @@ import { PricingPlan } from '../types';
 import { useCurrency } from '../context/CurrencyContext';
 import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 interface PricingProps {
   onSelectPlan: (planId: 'starter' | 'pro' | 'business') => void;
@@ -68,16 +69,16 @@ export default function Pricing({ onSelectPlan }: PricingProps) {
               id="pricing-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              <span className="text-3d-heading inline-block mr-2">
+              <TextReveal as="span" effect="words" className="text-3d-heading inline-block mr-2">
                 {t.pricing.titlePart1}
-              </span>{' '}
-              <span className="text-cyan-300 text-3d-cyan-glow inline-block">
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-cyan-300 text-3d-cyan-glow inline-block">
                 {t.pricing.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-200 max-w-2xl mx-auto text-3d-subtitle">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-200 max-w-2xl mx-auto text-3d-subtitle">
               {t.pricing.subtitle}
-            </p>
+            </TextReveal>
           </div>
         </ScrollReveal>
 
@@ -354,8 +355,8 @@ export default function Pricing({ onSelectPlan }: PricingProps) {
                   </h4>
                   <p className="text-xs text-slate-300 max-w-2xl mt-1 leading-relaxed">
                     {language === 'fr'
-                      ? `Si vous souhaitez que Zalyvo conçoive votre logo sur-mesure et recherche votre nom de marque : +${formatPrice(500)}. Si vous avez déjà vos éléments, c’est 100% gratuit (0 DH) !`
-                      : `If you want Zalyvo to design your custom logo and create your brand name: +${formatPrice(500)}. If you already have your own assets, it is 100% free (0 DH)!`}
+                      ? `Si vous souhaitez que Nexivo conçoive votre logo sur-mesure et recherche votre nom de marque : +${formatPrice(500)}. Si vous avez déjà vos éléments, c’est 100% gratuit (0 DH) !`
+                      : `If you want Nexivo to design your custom logo and create your brand name: +${formatPrice(500)}. If you already have your own assets, it is 100% free (0 DH)!`}
                   </p>
                 </div>
               </div>

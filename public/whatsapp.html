@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ZALYVO - Assistant IA</title>
+<title>NEXIVO - Assistant IA</title>
 <script src="https://js.puter.com/v2/"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -8,17 +8,17 @@
 body{background:#111b21;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:10px}
 .phone{width:440px;max-width:100%;height:92vh;background:#efeae2;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5);border:8px solid #1f2c34}
 .header{background:#202c33;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:12px}
-.avatar{width:42px;height:42px;background:#00a884;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.avatar{width:42px;height:42px;background:#0d2a54;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
 .chat{flex:1;overflow-y:auto;padding:14px;background-color:#efeae2;background-image:url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')}
 .bubble{max-width:85%;padding:11px 14px;border-radius:8px;margin-bottom:10px;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
 .bot{background:#fff;border-top-left-radius:0;box-shadow:0 1px .5px rgba(0,0,0,.13)}
 .user{background:#d9fdd3;margin-left:auto;border-top-right-radius:0}
 .time{font-size:10px;color:#667781;float:right;margin-left:10px;margin-top:6px}
 .quick{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
-.qbtn{background:#fff;border:1.2px solid #00a884;color:#00a884;padding:7px 13px;border-radius:18px;font-size:12px;cursor:pointer;font-weight:600}
+.qbtn{background:#fff;border:1.2px solid #0d2a54;color:#0d2a54;padding:7px 13px;border-radius:18px;font-size:12px;cursor:pointer;font-weight:600}
 .inputbar{background:#f0f2f5;padding:8px 10px;display:flex;gap:8px;align-items:center}
 .inp{flex:1;background:#fff;border:none;border-radius:22px;padding:12px 15px;outline:none;font-size:14px}
-.send{width:42px;height:42px;background:#00a884;border:none;border-radius:50%;color:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+.send{width:42px;height:42px;background:#0d2a54;border:none;border-radius:50%;color:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
 .typing{display:flex;gap:4px;padding:12px 14px;background:#fff;border-radius:8px;width:62px;margin-bottom:8px}
 .typing span{width:6px;height:6px;background:#999;border-radius:50%;animation:b 1.4s infinite}
 .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
@@ -28,99 +28,107 @@ body{background:#111b21;display:flex;justify-content:center;align-items:center;m
 .badge{background:#ff4444;color:#fff;padding:3px 8px;border-radius:10px;font-size:11px;margin-left:8px}
 </style></head><body>
 <div class="phone">
-<div class="header"><div class="avatar">Z</div><div><div style="font-weight:700">ZALYVO - Assistant</div><div style="font-size:11px;color:#25D366">En ligne - Reponse rapide 7j/7</div></div></div>
+<div class="header"><div class="avatar">N</div><div><div style="font-weight:700">NEXIVO - Assistant</div><div style="font-size:11px;color:#25D366">En ligne - Réponse rapide 7j/7</div></div></div>
 <div class="chat" id="chat"></div>
 <div class="inputbar"><input id="inp" class="inp" placeholder="Posez votre question..." onkeypress="if(event.key==='Enter')send()"><button class="send" onclick="send()">></button></div>
 </div>
 
 <div class="admin" id="adminPanel"><div class="adminBox">
-<h3>Questions non traitees ZALYVO <span id="adminCount" class="badge">0</span></h3>
-<p style="font-size:12px;color:#666;margin:10px 0">Toutes les questions que ZALYVO n'a pas su repondre. Envoyees automatiquement a zalyvo.site@gmail.com<br><br><b>Si tu ne recois pas d'email :</b> Verifie SPAMS + desactive adblocker + clique sur "Tester envoi"</p>
-<button onclick="testEmail()" style="padding:8px 15px;background:#00a884;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-bottom:10px">Tester envoi email maintenant</button>
+<h3>Questions non traitées NEXIVO <span id="adminCount" class="badge">0</span></h3>
+<p style="font-size:12px;color:#666;margin:10px 0">Toutes les questions que NEXIVO n'a pas su répondre. Envoyées automatiquement à web.nexivo@gmail.com<br><br><b>Si tu ne reçois pas d'email :</b> Vérifie SPAMS + désactive adblocker + clique sur "Tester envoi"</p>
+<button onclick="testEmail()" style="padding:8px 15px;background:#0d2a54;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-bottom:10px">Tester envoi email maintenant</button>
 <div id="adminList" style="margin-top:10px"></div>
 <div style="margin-top:15px;display:flex;gap:10px;flex-wrap:wrap">
 <button onclick="document.getElementById('adminPanel').style.display='none'" style="padding:8px 15px;background:#333;color:#fff;border:none;border-radius:6px;cursor:pointer">Fermer</button>
 <button onclick="copyAll()" style="padding:8px 15px;background:#eee;border:none;border-radius:6px;cursor:pointer">Copier tout</button>
-<button onclick="localStorage.removeItem('zalyvo_unanswered');showAdmin()" style="padding:8px 15px;background:#ff4444;color:#fff;border:none;border-radius:6px;cursor:pointer">Effacer</button>
+<button onclick="localStorage.removeItem('nexivo_unanswered');showAdmin()" style="padding:8px 15px;background:#ff4444;color:#fff;border:none;border-radius:6px;cursor:pointer">Effacer</button>
 </div>
 </div></div>
 
 <script>
 const chatEl=document.getElementById('chat');
-const OWNER_EMAIL = "zalyvo.site@gmail.com";
+const OWNER_EMAIL = "web.nexivo@gmail.com";
+const CONTACT_PHONE = "+212 715878163";
+const MESSAGE_NON_COMPRIS = "Je ne peux pas répondre à cette question, je peux simplement vous donner des informations concernant NEXIVO.\n\nChez NEXIVO, nous créons des sites web modernes, rapides et professionnels. Dites-moi quelle est votre activité et je vous conseille la meilleure solution.";
 
-// CONFIG EMAILJS - optionnel pour fiabilite 100%
-const EMAILJS_SERVICE_ID = "service_zalyvo";
-const EMAILJS_TEMPLATE_ID = "template_zalyvo";
+const EMAILJS_SERVICE_ID = "service_nexivo";
+const EMAILJS_TEMPLATE_ID = "template_nexivo";
 const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 if(EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY"){ emailjs.init(EMAILJS_PUBLIC_KEY); }
 
 const SYSTEM_PROMPT = `
-Tu es ZALYVO, l'assistant officiel de l'agence web ZALYVO.
+Tu es NEXIVO, l'assistant officiel de l'agence web NEXIVO.
+Tu reprends TOUTES les informations du chatbot NEXIVO d'origine, mais tu réponds avec la MEME FAÇON de répondre que le chatbot RETALIA : pro, chaleureux, multilingue.
 
-
-
-Informations de l'agence ZALYVO :
-- Nom : ZALYVO - Agence Web
-- Services : creation de sites web modernes, rapides et professionnels. Sites vitrines, boutiques en ligne, catalogues produits, prise de rendez-vous, sites restaurant/cafe, portfolio. Design responsive parfait sur mobile, tablette et ordinateur. Optimisation vitesse et referencement Google. Integrations : formulaire, WhatsApp, Google Maps, reseaux sociaux, mise en ligne complete.
+INFORMATIONS OFFICIELLES NEXIVO :
+- Nom : NEXIVO - Agence Web (anciennement ZALYVO)
+- Site : nexivo.com (ou zalyvo.com)
+- Services : création de sites web modernes, rapides et professionnels. Sites vitrines, boutiques en ligne, catalogues produits, prise de rendez-vous, sites restaurant/café, portfolio. Design responsive parfait sur mobile, tablette et ordinateur. Optimisation vitesse et référencement Google. Intégrations : formulaire, WhatsApp, Google Maps, réseaux sociaux, mise en ligne complète.
 - Tarifs : 
-  STARTER 2 999 DH - Jusqu'a 3 pages - Livraison 7 jours
-  PRO 4 500 DH - Jusqu'a 7 pages - 11 jours - La plus demandee - Design sur mesure + SEO
-  BUSINESS 6 500 DH - Jusqu'a 10 pages - 14 jours - E-commerce possible + SEO complet
+  STARTER 2 999 DH - Jusqu'à 3 pages - Livraison 7 jours
+  PRO 4 500 DH - Jusqu'à 7 pages - 11 jours - La plus demandée - Design sur mesure + SEO
+  BUSINESS 6 500 DH - Jusqu'à 10 pages - 14 jours - E-commerce possible + SEO complet
   Pack Changement (modification site existant) 1 500 DH
-  Supplements 200 DH par element
+  Suppléments 200 DH par élément
   Logo + nom de marque 500 DH
-- Hebergement : Si client a deja hebergeur gratuit, sinon formule ZALYVO : 1 mois 199 DH, 3 mois 499 DH, 6 mois 899 DH, 12 mois 1590 DH, 24 mois 2890 DH, 48 mois 4990 DH.
-- Contact : WhatsApp / Telephone +216 25 152 905, Email zalyvo.site@gmail.com, Site zalyvo.com (ou zalyvo.com)
-- Horaires : 7j/7 et 24h/24, reponse en moins de 24h meme week-end.
+- Hébergement : Si client a déjà hébergeur gratuit, sinon formule NEXIVO : 1 mois 199 DH, 3 mois 499 DH, 6 mois 899 DH, 12 mois 1590 DH, 24 mois 2890 DH, 48 mois 4990 DH.
+- Contact IMPORTANT : 
+  - Numéro ZALYVO / NEXIVO : +212 715878163 (TOUJOURS donner celui-ci si on demande le numéro de ZALYVO ou NEXIVO)
+  - Email : web.nexivo@gmail.com
+  - Site : nexivo.com
+  - Ancien numéro +216 25 152 905 ne plus utiliser, remplacer par +212 715878163
+- Horaires : 7j/7 et 24h/24, réponse en moins de 24h même week-end.
 
-Consignes :
-1. Tu t'appelles ZALYVO. Tu dis "Chez ZALYVO, nous...". Tu es l'assistant ZALYVO.
-2. Tu parles comme un humain pro, tu vouvoies, sans emoji, francais naturel, professionnel mais chaleureux.
-3. Si on demande "quel site vous me proposez" : demande l'activite du client et propose le modele le plus adapte (vitrine, boutique, catalogue, RDV, restaurant...).
-4. Si on demande si on peut changer un site deja fait : dis Oui bien sur, Pack Changement 1500 DH, et demande le lien du site.
-5. Si horaires : 7j/7 24h/24.
-6. Si tu ne sais vraiment pas repondre ou question hors sujet (meteo, politique...), commence EXACTEMENT par [TRANSFERT_EQUIPE] puis phrase pro de transfert. Exemple : "[TRANSFERT_EQUIPE] Desole, je n'ai pas la reponse exacte a votre question. Je transmets votre demande a un membre de l'equipe ZALYVO, il vous repondra sur WhatsApp au +216 25 152 905 dans les 2 heures."
-7. Reponses courtes 2-5 phrases sauf tarifs ou tu peux detailler.
-8. Ne jamais dire que tu es une IA de Puter ou OpenAI. Tu es ZALYVO.
+FAÇON DE RÉPONDRE - STYLE RETALIA :
+1. Tu t'appelles NEXIVO. Tu dis "Chez NEXIVO, nous..." 
+2. Tu parles comme un humain pro, tu vouvoies, sans emoji excessif, français naturel, professionnel mais chaleureux.
+3. Tu peux répondre en français, arabe ou anglais selon la langue du client.
+4. Si on demande "quel site / quel service vous me proposez" : tu demandes l'activité du client et tu proposes la solution la plus adaptée.
+5. Si on demande numéro de téléphone, numéro de ZALYVO, contact, WhatsApp : tu réponds TOUJOURS +212 715878163
+6. Si la question n'a pas de réponse dans tes infos NEXIVO, tu dois OBLIGATOIREMENT terminer ta réponse par [TRANSFERT_EQUIPE]. Le système va envoyer un email en arrière-plan à web.nexivo@gmail.com mais le client NE DOIT PAS le savoir. Tu ne dois jamais dire "je transmets à l'équipe" ou "j'envoie un email". Tu dois dire exactement : "Je ne peux pas répondre à cette question, je peux simplement vous donner des informations concernant NEXIVO."
 `;
 
-let history = [{role:"system", content: SYSTEM_PROMPT}];
+let history=[{role:"system", content: SYSTEM_PROMPT}];
 
-function add(t,who){
- const d=document.createElement('div');d.className='bubble '+who;
- const time=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
- d.innerHTML=t.replace(/\n/g,'<br>')+`<span class="time">${time}</span>`;
- chatEl.appendChild(d);chatEl.scrollTop=chatEl.scrollHeight;
+function add(text, who){
+  const b=document.createElement('div');
+  b.className='bubble '+(who==='user'?'user':'bot');
+  const t=new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  b.innerHTML=text.replace(/\n/g,'<br>')+`<span class="time">${t}</span>`;
+  chatEl.appendChild(b);
+  chatEl.scrollTop=chatEl.scrollHeight;
 }
-function typing(on){
- if(on){const d=document.createElement('div');d.className='typing';d.id='typing';d.innerHTML='<span></span><span></span><span></span>';chatEl.appendChild(d);chatEl.scrollTop=chatEl.scrollHeight}
- else{const e=document.getElementById('typing');if(e)e.remove()}
+function typing(show){
+  const existing=document.getElementById('typing');
+  if(existing) existing.remove();
+  if(!show) return;
+  const d=document.createElement('div');
+  d.id='typing'; d.className='typing';
+  d.innerHTML='<span></span><span></span><span></span>';
+  chatEl.appendChild(d);
+  chatEl.scrollTop=chatEl.scrollHeight;
 }
 
 async function sendEmailToOwner(clientQuestion){
   const now = new Date();
-  const heure = now.toLocaleString('fr-FR', {timeZone: 'Africa/Casablanca', dateStyle:'full', timeStyle:'medium'});
-  const heureCourte = now.toLocaleString('fr-FR', {timeZone: 'Africa/Casablanca'});
-  
-  let list = JSON.parse(localStorage.getItem('zalyvo_unanswered')||'[]');
-  list.unshift({question: clientQuestion, heure: heure, courte: heureCourte, date: now.toISOString(), url: window.location.href});
-  localStorage.setItem('zalyvo_unanswered', JSON.stringify(list.slice(0,100)));
+  const heure = now.toLocaleString('fr-FR');
+  const heureCourte = now.toLocaleTimeString();
+  const list = JSON.parse(localStorage.getItem('nexivo_unanswered')||'[]');
+  list.unshift({question: clientQuestion, heure: heure, courte: heureCourte, url: window.location.href});
+  localStorage.setItem('nexivo_unanswered', JSON.stringify(list.slice(0,100)));
   const countEl = document.getElementById('adminCount');
   if(countEl) countEl.innerText = list.length;
 
-  const subject = `ZALYVO - Question non traitee - ${heureCourte}`;
-  const message = `NOUVELLE DEMANDE CLIENT NON TRAITEE - ZALYVO
+  const subject = `NEXIVO - Question non traitée - ${heureCourte}`;
+  const message = `NOUVELLE DEMANDE CLIENT NON TRAITEE - NEXIVO
 
 Heure : ${heure}
 Question : ${clientQuestion}
 Site : ${window.location.href}
 Navigateur : ${navigator.userAgent}
 
-A repondre sur WhatsApp +216 25 152 905
+A répondre sur WhatsApp ${CONTACT_PHONE}
 Email : ${OWNER_EMAIL}`;
-
-  console.log("Envoi email ZALYVO pour :", clientQuestion);
 
   if(EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY"){
     try{
@@ -130,11 +138,10 @@ Email : ${OWNER_EMAIL}`;
         message: message,
         question: clientQuestion,
         heure: heure,
-        from_name: "ZALYVO Bot"
+        from_name: "NEXIVO Bot"
       });
-      console.log("Email envoye via EmailJS");
       return true;
-    }catch(e){ console.log("EmailJS erreur", e); }
+    }catch(e){}
   }
 
   try{
@@ -145,8 +152,7 @@ Email : ${OWNER_EMAIL}`;
     formData.append("heure", heure);
     formData.append("_captcha", "false");
     await fetch(`https://formsubmit.co/${OWNER_EMAIL}`, { method:"POST", body: formData });
-    console.log("Email envoye via FormSubmit FormData");
-  }catch(e){ console.log("FormSubmit FormData erreur", e); }
+  }catch(e){}
 
   try{
     await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
@@ -154,21 +160,20 @@ Email : ${OWNER_EMAIL}`;
       headers:{"Content-Type":"application/json","Accept":"application/json"},
       body: JSON.stringify({ subject: subject, message: message, question: clientQuestion, heure: heure, _captcha:"false" })
     });
-    console.log("Email envoye via FormSubmit AJAX");
-  }catch(e){ console.log("FormSubmit AJAX erreur", e); }
+  }catch(e){}
 
   try{
-    await fetch("https://ntfy.sh/zalyvo-alerts-2025", {
+    await fetch("https://ntfy.sh/nexivo-alerts-web-2025", {
       method:"POST",
       body: `${subject}\n${clientQuestion}\n${heure}`,
-      headers: { "Title": "ZALYVO - Nouvelle question" }
+      headers: { "Title": "NEXIVO - Nouvelle question" }
     });
   }catch(e){}
 }
 
 async function testEmail(){
-  await sendEmailToOwner("TEST - Ceci est un test d'envoi d'email depuis le bot ZALYVO. Heure : " + new Date().toLocaleString());
-  alert("Test envoye a zalyvo.site@gmail.com ! Verifie ta boite et tes SPAMS dans 1-2 minutes. Si rien, ton adblocker bloque. Desactive-le et reteste.");
+  await sendEmailToOwner("TEST - Ceci est un test d'envoi d'email depuis le bot NEXIVO. Heure : " + new Date().toLocaleString());
+  alert("Test envoyé à "+OWNER_EMAIL+" ! Vérifie ta boîte et tes SPAMS dans 1-2 minutes.");
   showAdmin();
 }
 
@@ -180,50 +185,58 @@ async function askAI(userText){
     history.push({role:"assistant", content: answer});
     if(history.length>12) history = [history[0]].concat(history.slice(-10));
     if(answer.includes("[TRANSFERT_EQUIPE]")){
-      answer = answer.replace("[TRANSFERT_EQUIPE]", "").trim();
+      // Envoi silencieux - le client ne doit pas savoir qu'on envoie un email
       sendEmailToOwner(userText);
+      return MESSAGE_NON_COMPRIS;
     }
     return answer;
   }catch(e){
-    console.error(e);
     const lower = userText.toLowerCase();
-    if(lower.includes("horaire") || lower.includes("heure") || lower.includes("ouvert")) return "Nous sommes ouverts 7j/7 et 24h/24 chez ZALYVO. Vous pouvez nous ecrire a tout moment sur WhatsApp au +216 25 152 905.";
-    if(lower.includes("changer") || lower.includes("modif") || lower.includes("deja")) return "Oui bien sur, chez ZALYVO nous pouvons modifier votre site deja existant. C'est le Pack Changement a 1 500 DH : refonte design, modifications textes et images, optimisation mobile. Envoyez-nous le lien de votre site.";
-    if(lower.includes("quel site") || lower.includes("propose")) return "Tout depend de votre activite. Chez ZALYVO nous proposons site vitrine pour presenter votre entreprise, catalogue, boutique en ligne ou site avec prise de rendez-vous. Dites-moi quelle est votre activite et je vous conseille le modele le plus adapte.";
+    // Numéro ZALYVO / NEXIVO - toujours le nouveau
+    if(lower.includes("zalyvo") && (lower.includes("num") || lower.includes("tel") || lower.includes("whatsapp") || lower.includes("contact"))) {
+      return `Le numéro de ZALYVO / NEXIVO est : ${CONTACT_PHONE}\nVous pouvez nous écrire sur WhatsApp à tout moment, nous répondons 7j/7.`;
+    }
+    if(lower.includes("numéro") || lower.includes("numero") || lower.includes("téléphone") || lower.includes("telephone") || lower.includes("whatsapp") || lower.includes("contact")){
+      return `Vous pouvez nous contacter directement chez NEXIVO :\n\nWhatsApp / Téléphone : ${CONTACT_PHONE}\nEmail : ${OWNER_EMAIL}\nSite : nexivo.com\n\nNous vous répondons très rapidement, 7j/7.`;
+    }
+    if(lower.includes("tarif") || lower.includes("prix")){
+      return `Voici nos formules chez NEXIVO :\n\nSTARTER 2 999 DH - 3 pages - 7 jours\nPRO 4 500 DH - 7 pages - 11 jours (la plus demandée)\nBUSINESS 6 500 DH - 10 pages - 14 jours - E-commerce possible\n\nPack Changement 1 500 DH pour modifier un site existant.\nQuelle est votre activité ?`;
+    }
+    // Envoi silencieux sans le dire au client
     sendEmailToOwner(userText);
-    return "Desole, je n'ai pas la reponse exacte a votre question. Je transmets votre demande a un membre de l'equipe ZALYVO, il vous repondra sur WhatsApp au +216 25 152 905 dans les 2 heures.";
+    return MESSAGE_NON_COMPRIS;
   }
 }
 
 async function handleUser(txt){
- if(txt.toLowerCase().includes('admin zalyvo')){ showAdmin(); return; }
+ if(txt.toLowerCase().includes('admin nexivo')){ showAdmin(); return; }
  add(txt,'user');typing(true);
  const answer = await askAI(txt);
  typing(false);
  add(answer,'bot');
  const q=document.createElement('div');q.className='quick';
- [['Quel site pour moi ?','Quel site vous me proposez ?'],['Tarifs','Quels sont vos tarifs ?'],['Modifier','Vous pouvez changer un site deja fait ?'],['Admin','admin zalyvo']].forEach(b=>{
+ [['Nos services','Quels services proposez-vous ?'],['Tarifs','Quels sont vos tarifs ?'],['Numéro','Quel est votre numéro ?'],['Devis','Je veux un devis']].forEach(b=>{
    const el=document.createElement('button');el.className='qbtn';el.innerText=b[0];el.onclick=()=>handleUser(b[1]);q.appendChild(el);
  });
  chatEl.appendChild(q);chatEl.scrollTop=chatEl.scrollHeight;
 }
 function send(){const i=document.getElementById('inp');const v=i.value.trim();if(!v)return;i.value='';handleUser(v);}
 function showAdmin(){
-  const list = JSON.parse(localStorage.getItem('zalyvo_unanswered')||'[]');
+  const list = JSON.parse(localStorage.getItem('nexivo_unanswered')||'[]');
   const countEl = document.getElementById('adminCount');
   if(countEl) countEl.innerText = list.length;
   const container = document.getElementById('adminList');
-  if(list.length===0){ container.innerHTML = "<p>Aucune question non traitee pour le moment. Pour tester, ecris une question hors sujet comme 'vous faites des apps mobiles ?'</p>"; }
+  if(list.length===0){ container.innerHTML = "<p>Aucune question non traitée pour le moment.</p>"; }
   else{
     container.innerHTML = list.map((item,i)=>`<div style="border:1px solid #ddd;padding:10px;margin-bottom:8px;border-radius:6px"><b>${item.courte||item.heure}</b><br>${item.question}<br><small style="color:#888">${item.url||''}</small></div>`).join('');
   }
   document.getElementById('adminPanel').style.display='flex';
 }
 function copyAll(){
-  const list = JSON.parse(localStorage.getItem('zalyvo_unanswered')||'[]');
+  const list = JSON.parse(localStorage.getItem('nexivo_unanswered')||'[]');
   const text = list.map(l=>`${l.heure} - ${l.question}`).join('\n');
   navigator.clipboard.writeText(text);
-  alert("Copie !");
+  alert("Copié !");
 }
 document.addEventListener('keydown', (e)=>{
   if((e.ctrlKey && e.shiftKey && e.key.toLowerCase()==='a') || e.key==='Escape'){
@@ -232,9 +245,9 @@ document.addEventListener('keydown', (e)=>{
   }
   if(e.key==='Escape') document.getElementById('adminPanel').style.display='none';
 });
-setTimeout(()=>{add(`Bonjour et bienvenue chez ZALYVO.
+setTimeout(()=>{add(`Bonjour et bienvenue chez NEXIVO.
 
-Je suis ZALYVO, votre assistant intelligent.
+Je suis l'assistant intelligent de NEXIVO, avec la même façon de répondre que RETALIA.
 
-Souhaitez-vous creer un nouveau site ou modifier un site que vous avez deja ?`, 'bot');},300);
+Comment puis-je vous aider aujourd'hui ?`, 'bot');},300);
 </script></body></html>

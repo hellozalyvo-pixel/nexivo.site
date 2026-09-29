@@ -98,7 +98,7 @@ export function formatCurrencyPrice(
 
 /**
  * ============================================================================
- * TARIFS D'HÉBERGEMENT AVEC ZALYVO (CONFIGURABLES)
+ * TARIFS D'HÉBERGEMENT AVEC NEXIVO (CONFIGURABLES)
  * Les prix sont définis en MAD et convertibles automatiquement.
  * ============================================================================
  */
@@ -197,23 +197,23 @@ export const SUPPLEMENTS_CONFIG: Record<string, SupplementItem> = {
 
 /**
  * ============================================================================
- * CONFIGURATION DU SITE ZALYVO
+ * CONFIGURATION DU SITE NEXIVO
  * ============================================================================
  */
 export const SITE_CONFIG = {
-  brandName: 'ZALYVO',
+  brandName: 'NEXIVO',
   tagline: 'Création de sites web modernes pour entreprises et entrepreneurs.',
-  domain: 'zalyvo.com',
+  domain: 'nexivo.com',
   
   // Coordonnées de contact direct
   contact: {
-    email: 'zalyvo.site@gmail.com',
-    whatsappNumber: '+216 25 152 905',
-    whatsappRawNumber: '21625152905',
-    phoneNumber: '+216 25 152 905',
-    phoneRawNumber: '+21625152905',
-    defaultWhatsAppMessage: 'Bonjour ZALYVO, je souhaite échanger au sujet de la création de mon site web.',
-    whatsappUrl: 'https://wa.me/21625152905?text=Bonjour%20ZALYVO%2C%20je%20souhaite%20un%20devis%20pour%20la%20cr%C3%A9ation%20de%20mon%20site%20web.',
+    email: 'web.nexivo@gmail.com',
+    whatsappNumber: '+212 715 878 163',
+    whatsappRawNumber: '212715878163',
+    phoneNumber: '+212 715 878 163',
+    phoneRawNumber: '+212715878163',
+    defaultWhatsAppMessage: 'Bonjour NEXIVO, je souhaite échanger au sujet de la création de mon site web.',
+    whatsappUrl: 'https://wa.me/212715878163?text=Bonjour%20NEXIVO%2C%20je%20souhaite%20un%20devis%20pour%20la%20cr%C3%A9ation%20de%20mon%20site%20web.',
     assistantUrl: '/whatsapp',
     location: 'International (À distance)',
     responseDelay: 'Réponse rapide sous 24h',
@@ -221,12 +221,12 @@ export const SITE_CONFIG = {
 
   // Réseaux Sociaux
   socials: {
-    instagram: 'https://instagram.com/zalyvo_agency',
-    tiktok: 'https://tiktok.com/@zalyvo',
+    instagram: 'https://instagram.com/nexivo_agency',
+    tiktok: 'https://tiktok.com/@nexivo',
   },
 
   // ==========================================================================
-  // TARIFS OFFICIELS ZALYVO (EXACTEMENT EN DH)
+  // TARIFS OFFICIELS NEXIVO (EXACTEMENT EN DH)
   // Ces prix correspondent UNIQUEMENT à la création du site web.
   // L'hébergement est proposé séparément et au choix du client.
   // ==========================================================================
@@ -354,9 +354,9 @@ export const TIMELINE_DATA: TimelineStep[] = [
 ];
 
 /**
- * SECTION POURQUOI ZALYVO (4 éléments)
+ * SECTION POURQUOI NEXIVO (4 éléments)
  */
-export const WHY_ZALYVO_DATA: WhyFeature[] = [
+export const WHY_NEXIVO_DATA: WhyFeature[] = [
   {
     title: 'Design moderne',
     description: 'Des sites avec une apparence professionnelle.',
@@ -369,7 +369,7 @@ export const WHY_ZALYVO_DATA: WhyFeature[] = [
   },
   {
     title: 'Accompagnement',
-    description: 'Zalyvo vous accompagne pendant votre projet.',
+    description: 'Nexivo vous accompagne pendant votre projet.',
     icon: 'HeartHandshake',
   },
   {
@@ -378,6 +378,7 @@ export const WHY_ZALYVO_DATA: WhyFeature[] = [
     icon: 'Layers',
   },
 ];
+export const WHY_ZALYVO_DATA = WHY_NEXIVO_DATA;
 
 /**
  * SECTION RÉALISATIONS (Projets de démonstration)
@@ -627,27 +628,27 @@ export const DEMO_PROJECTS_DATA: DemoProject[] = [
 
 /**
  * SECTION FAQ
- * Respecte rigoureusement les questions et réponses exactes demandées par ZALYVO.
+ * Respecte rigoureusement les questions et réponses exactes demandées par NEXIVO.
  */
 export const FAQ_DATA: FaqItem[] = [
   {
     question: 'Combien coûte un site ?',
     answer:
-      'Nos tarifs officiels pour la création du site sont : STARTER : 3 500 DH | PRO : 5 000 DH | BUSINESS : 7 000 DH. Ces prix correspondent uniquement à la création du site web. L’hébergement est proposé séparément au choix lors de la commande (gestion directe par vos soins ou formule clé en main avec Zalyvo). Vous pouvez également utiliser le sélecteur de devise en haut de page pour convertir les prix en EUR (€), USD ($) ou GBP (£).',
+      'Nos tarifs officiels pour la création du site sont : STARTER : 3 500 DH | PRO : 5 000 DH | BUSINESS : 7 000 DH. Ces prix correspondent uniquement à la création du site web. L’hébergement est proposé séparément au choix lors de la commande (gestion directe par vos soins ou formule clé en main avec Nexivo). Vous pouvez également utiliser le sélecteur de devise en haut de page pour convertir les prix en EUR (€), USD ($) ou GBP (£).',
   },
   {
-    question: 'L’hébergement est-il obligatoire avec Zalyvo ?',
+    question: 'L’hébergement est-il obligatoire avec Nexivo ?',
     answer:
-      'Non. Vous pouvez acheter votre hébergement directement auprès de l’hébergeur de votre choix. Vous pouvez également choisir une durée d’hébergement proposée par Zalyvo et nous régler directement en cash.',
+      'Non. Vous pouvez acheter votre hébergement directement auprès de l’hébergeur de votre choix. Vous pouvez également choisir une durée d’hébergement proposée par Nexivo et nous régler directement en cash.',
   },
   {
     question: 'Puis-je choisir mon propre hébergeur ?',
     answer:
-      'Oui. Vous pouvez choisir votre propre hébergeur et payer directement celui-ci. Zalyvo pourra ensuite installer votre site sur votre hébergement.',
+      'Oui. Vous pouvez choisir votre propre hébergeur et payer directement celui-ci. Nexivo pourra ensuite installer votre site sur votre hébergement.',
   },
   {
     question: 'Puis-je payer en plusieurs fois ?',
-    answer: 'Les modalités de paiement sont définies avec Zalyvo lors de la commande.',
+    answer: 'Les modalités de paiement sont définies avec Nexivo lors de la commande.',
   },
   {
     question: 'Le site fonctionne-t-il sur téléphone ?',

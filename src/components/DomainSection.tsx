@@ -1,6 +1,7 @@
 import { Globe, FileText, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 export default function DomainSection() {
   const { t } = useLanguage();
@@ -24,10 +25,12 @@ export default function DomainSection() {
                   id="domain-title"
                   className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-display mb-4"
                 >
-                  {t.domain.titlePart1}{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                  <TextReveal as="span" effect="words" className="inline-block mr-2">
+                    {t.domain.titlePart1}
+                  </TextReveal>{' '}
+                  <TextReveal as="span" effect="glow" delay={0.12} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 inline-block">
                     {t.domain.titleHighlight}
-                  </span>
+                  </TextReveal>
                 </h2>
 
                 <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-6">

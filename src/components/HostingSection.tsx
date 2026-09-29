@@ -5,6 +5,7 @@ import { HostingDuration, HostingOption } from '../types';
 import { useCurrency } from '../context/CurrencyContext';
 import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 interface HostingSectionProps {
   onSelectHosting?: (option: HostingOption, duration: HostingDuration) => void;
@@ -39,15 +40,17 @@ export default function HostingSection({ onSelectHosting }: HostingSectionProps)
               id="hosting-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              {t.hosting.titlePart1}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-200">
+              <TextReveal as="span" effect="words" className="inline-block mr-2">
+                {t.hosting.titlePart1}
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-200 inline-block">
                 {t.hosting.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-300">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-300">
               {t.hosting.subtitle}
-            </p>
+            </TextReveal>
           </div>
         </ScrollReveal>
 
@@ -110,13 +113,13 @@ export default function HostingSection({ onSelectHosting }: HostingSectionProps)
             </div>
           </ScrollReveal>
 
-          {/* OPTION 2 — JE CHOISIS UNE DURÉE AVEC ZALYVO */}
+          {/* OPTION 2 — JE CHOISIS UNE DURÉE AVEC NEXIVO */}
           <ScrollReveal delay={0.2} yOffset={40} className="h-full">
             <div
-              id="hosting-option-zalyvo"
-              onClick={() => setSelectedOption('zalyvo')}
+              id="hosting-option-nexivo"
+              onClick={() => setSelectedOption('nexivo')}
               className={`cursor-pointer rounded-3xl p-7 sm:p-8 transition-all duration-300 flex flex-col justify-between border h-full ${
-                selectedOption === 'zalyvo'
+                selectedOption === 'nexivo' || selectedOption === 'zalyvo'
                   ? 'bg-gradient-to-b from-[#0c1a3a] via-[#09122c] to-[#070c20] border-blue-400/80 shadow-2xl shadow-blue-950/60 ring-2 ring-blue-400/40'
                   : 'bg-[#070b19]/80 border-blue-950/40 hover:border-blue-500/30 backdrop-blur-sm'
               }`}
@@ -129,12 +132,12 @@ export default function HostingSection({ onSelectHosting }: HostingSectionProps)
                   </span>
                   <div
                     className={`w-6 h-6 rounded-full border flex items-center justify-center transition-all ${
-                      selectedOption === 'zalyvo'
+                      selectedOption === 'nexivo' || selectedOption === 'zalyvo'
                         ? 'border-blue-400 bg-blue-600 text-white'
                         : 'border-white/30 bg-white/5'
                     }`}
                   >
-                    {selectedOption === 'zalyvo' && <Check className="w-4 h-4" />}
+                    {(selectedOption === 'nexivo' || selectedOption === 'zalyvo') && <Check className="w-4 h-4" />}
                   </div>
                 </div>
 
@@ -166,11 +169,11 @@ export default function HostingSection({ onSelectHosting }: HostingSectionProps)
                         id={`hosting-duration-btn-${dur.id}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          setSelectedOption('zalyvo');
+                          setSelectedOption('nexivo');
                           setSelectedDuration(dur.id);
                         }}
                         className={`py-2 px-2 rounded-xl text-xs font-bold transition-all text-center cursor-pointer border ${
-                          selectedDuration === dur.id && selectedOption === 'zalyvo'
+                          selectedDuration === dur.id && (selectedOption === 'nexivo' || selectedOption === 'zalyvo')
                             ? 'bg-purple-600 border-purple-400 text-white shadow-md shadow-purple-500/30'
                             : 'bg-white/[0.04] border-white/10 text-slate-300 hover:bg-white/[0.08]'
                         }`}

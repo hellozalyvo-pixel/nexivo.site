@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext';
 import { MessageSquare, PenTool, Code, Rocket, CheckCircle } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 const STEP_ICONS = [MessageSquare, PenTool, Code, Rocket];
 
@@ -23,14 +24,16 @@ export default function HowItWorks() {
               id="timeline-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              {t.howItWorks.titlePart1}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-200">
+              <TextReveal as="span" effect="words" className="inline-block mr-2">
+                {t.howItWorks.titlePart1}
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-200 inline-block">
                 {t.howItWorks.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-300">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-300">
               {t.howItWorks.subtitle}
-            </p>
+            </TextReveal>
           </div>
         </ScrollReveal>
 

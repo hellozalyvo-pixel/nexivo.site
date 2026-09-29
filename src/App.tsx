@@ -12,7 +12,7 @@ import HostingSection from './components/HostingSection';
 import DomainSection from './components/DomainSection';
 import OrderConfigurator from './components/OrderConfigurator';
 import Portfolio from './components/Portfolio';
-import WhyZalyvo from './components/WhyZalyvo';
+import WhyNexivo from './components/WhyNexivo';
 import FaqSection from './components/FaqSection';
 import ContactSection from './components/ContactSection';
 import FinalCta from './components/FinalCta';
@@ -21,6 +21,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import WhatsAppChatWidget from './components/WhatsAppChatWidget';
 import InformationCenter from './components/InformationCenter';
 import ScrollReveal from './components/ScrollReveal';
+import ScrollProgress from './components/ScrollProgress';
 import Decor3D from './components/Decor3D';
 import { ActivePage, HostingDuration, HostingOption } from './types';
 import { Search, Sparkles, ArrowRight, BookOpen, Layers, CheckCircle2, MessageCircle, RefreshCw } from 'lucide-react';
@@ -86,6 +87,9 @@ function MainAppContent() {
 
   return (
     <div className="min-h-screen bg-cyber-blue-canvas text-slate-100 flex flex-col selection:bg-blue-500 selection:text-white relative overflow-x-hidden">
+      {/* Dynamic Scroll Progress Bar */}
+      <ScrollProgress />
+
       {/* Global Ambient Lighting & Cyber Multi-Blue 3D Backdrop (Deep Obsidian Atmosphere) */}
       <div className="fixed inset-0 bg-grid-cyber-matrix opacity-35 pointer-events-none -z-20" />
       {/* Luminescent Cyan & Sapphire Zenith Subtle Arc */}
@@ -233,11 +237,11 @@ function MainAppContent() {
             {/* Comment ça marche (Timeline 4 étapes) */}
             <HowItWorks />
 
-            {/* Pourquoi Zalyvo ? (Nos engagements de transparence et propriété) */}
-            <WhyZalyvo />
+            {/* Pourquoi Nexivo ? (Nos engagements de transparence et propriété) */}
+            <WhyNexivo />
 
             {/* ======================================================================= */}
-            {/* PORTAIL DES ESPACES & SERVICES ZALYVO (ACCÈS AUX NOUVELLES PAGES)      */}
+            {/* PORTAIL DES ESPACES & SERVICES NEXIVO (ACCÈS AUX NOUVELLES PAGES)      */}
             {/* ======================================================================= */}
             <section className="py-20 relative z-10">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

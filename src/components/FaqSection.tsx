@@ -3,6 +3,7 @@ import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG } from '../config';
 import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // first open by default
@@ -30,15 +31,17 @@ export default function FaqSection() {
               id="faq-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              {t.faq.titlePart1}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              <TextReveal as="span" effect="words" className="inline-block mr-2">
+                {t.faq.titlePart1}
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 inline-block">
                 {t.faq.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-400">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-400">
               {t.faq.subtitle}
-            </p>
+            </TextReveal>
           </div>
         </ScrollReveal>
 

@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from '../config';
-import { ArrowUp, Instagram, MessageCircle, Mail, Sparkles, BookOpen, Search } from 'lucide-react';
+import { Instagram, MessageCircle, Mail, Sparkles, BookOpen, Search } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useWhatsAppChat } from '../context/WhatsAppChatContext';
 import { ActivePage } from '../types';
@@ -36,7 +36,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 p-[1.5px] shadow-lg shadow-blue-500/20">
                   <div className="w-full h-full bg-[#07080f] rounded-[10px] flex items-center justify-center">
                     <span className="font-extrabold text-lg text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                      Z
+                      N
                     </span>
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                     onClick={() => handleLinkClick('info')}
                     className="text-slate-400 hover:text-blue-300 transition-colors cursor-pointer text-left"
                   >
-                    {language === 'fr' ? '• Hébergement client vs Zalyvo' : '• Client vs Zalyvo hosting'}
+                    {language === 'fr' ? '• Hébergement client vs Nexivo' : '• Client vs Nexivo hosting'}
                   </button>
                 </li>
                 <li>
@@ -218,7 +218,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                   id="footer-whatsapp-link"
                   onClick={() => openChat()}
                   className="inline-flex items-center gap-2.5 text-slate-400 hover:text-emerald-400 transition-colors group cursor-pointer text-left"
-                  title={language === 'fr' ? 'Ouvrir l’Assistant WhatsApp ZALYVO' : 'Open ZALYVO WhatsApp Assistant'}
+                  title={language === 'fr' ? 'Ouvrir l’Assistant WhatsApp NEXIVO' : 'Open NEXIVO WhatsApp Assistant'}
                 >
                   <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
                     <MessageCircle className="w-4 h-4" />
@@ -249,17 +249,8 @@ export default function Footer({ onNavigate }: FooterProps) {
         {/* Copyright Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © 2026 Zalyvo — {t.common.allRightsReserved}
+            © 2026 Nexivo — {t.common.allRightsReserved}
           </div>
-
-          <button
-            onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
-            aria-label={t.footer.backToTop}
-          >
-            <span>{t.footer.backToTop}</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
         </div>
       </div>
     </footer>

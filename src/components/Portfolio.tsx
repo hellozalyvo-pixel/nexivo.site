@@ -5,6 +5,7 @@ import { Sparkles, Utensils, Home, Dumbbell, Scissors, Briefcase, ShoppingBag, E
 import { useLanguage } from '../context/LanguageContext';
 import { WebsiteScreenshotMock } from './WebsiteScreenshotMock';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 const SECTOR_ICONS: Record<string, typeof Utensils> = {
   restaurant: Utensils,
@@ -41,17 +42,17 @@ export default function Portfolio({ onSelectProjectForQuote }: PortfolioProps) {
               id="portfolio-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              <span className="text-3d-heading inline-block mr-2">
+              <TextReveal as="span" effect="words" className="text-3d-heading inline-block mr-2">
                 {t.portfolio.titlePart1}
-              </span>{' '}
-              <span className="text-cyan-300 text-3d-cyan-glow inline-block">
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-cyan-300 text-3d-cyan-glow inline-block">
                 {t.portfolio.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-200 text-3d-subtitle">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-200 text-3d-subtitle">
               {t.portfolio.subtitle}
-            </p>
+            </TextReveal>
 
             {/* Mandatory Demonstration Notice */}
             <div
@@ -85,7 +86,7 @@ export default function Portfolio({ onSelectProjectForQuote }: PortfolioProps) {
                         <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
                       </div>
                       <div className="text-[10px] text-slate-400 font-mono truncate max-w-[170px] bg-black/40 px-2 py-0.5 rounded">
-                        https://demo.zalyvo.com/{project.id}
+                        https://demo.nexivo.com/{project.id}
                       </div>
                       <span className="text-[9px] text-emerald-400 font-mono">SSL ✓</span>
                     </div>

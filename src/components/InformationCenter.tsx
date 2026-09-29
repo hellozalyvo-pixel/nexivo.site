@@ -604,8 +604,8 @@ export default function InformationCenter({ onNavigate }: InformationCenterProps
                 <MessageCircle className="w-4 h-4" />
                 <span>
                   {language === 'fr'
-                    ? 'Discuter avec l’Assistant Zalyvo'
-                    : 'Chat with Zalyvo Assistant'}
+                    ? 'Discuter avec l’Assistant Nexivo'
+                    : 'Chat with Nexivo Assistant'}
                 </span>
               </button>
 

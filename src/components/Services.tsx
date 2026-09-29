@@ -1,6 +1,7 @@
 import { Globe, Palette, Smartphone, Zap, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 
 const ICONS_MAP: Record<string, typeof Globe> = {
   Globe: Globe,
@@ -32,16 +33,16 @@ export default function Services({ onOpenQuote }: ServicesProps) {
               id="services-title"
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-display"
             >
-              <span className="text-3d-heading inline-block mr-2">
+              <TextReveal as="span" effect="words" className="text-3d-heading inline-block mr-2">
                 {t.services.titlePart1}
-              </span>{' '}
-              <span className="text-cyan-300 text-3d-cyan-glow inline-block">
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-cyan-300 text-3d-cyan-glow inline-block">
                 {t.services.titleHighlight}
-              </span>
+              </TextReveal>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-200 text-3d-subtitle">
+            <TextReveal as="p" effect="lift" delay={0.1} className="mt-4 text-base sm:text-lg text-slate-200 text-3d-subtitle">
               {t.services.subtitle}
-            </p>
+            </TextReveal>
           </div>
         </ScrollReveal>
 

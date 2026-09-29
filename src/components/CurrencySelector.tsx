@@ -192,7 +192,7 @@ export default function CurrencySelector({ variant = 'navbar' }: CurrencySelecto
           </div>
 
           <div className="mt-2 pt-2 border-t border-white/10 px-3 py-1 text-[10px] text-slate-400 leading-tight">
-            🇲🇦 Prix de référence officiel ZALYVO en Dirham (MAD).
+            🇲🇦 Prix de référence officiel NEXIVO en Dirham (MAD).
           </div>
         </div>
       )}

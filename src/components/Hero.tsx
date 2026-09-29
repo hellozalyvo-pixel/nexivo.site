@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { ArrowRight, Sparkles, Smartphone, Zap, ShieldCheck, ExternalLink, Laptop, Code2, Layers, BookOpen, Search } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import TextReveal from './TextReveal';
 import HolographicPedestal from './HolographicPedestal';
 import { ActivePage } from '../types';
 
@@ -46,7 +47,7 @@ export default function Hero({ onOpenQuote, onNavigate }: HeroProps) {
           <ScrollReveal delay={0.05} yOffset={25}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/60 border border-blue-500/40 text-xs font-semibold text-slate-100 mb-8 backdrop-blur-md shadow-lg shadow-blue-950/40 text-3d-badge">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
-              <span className="text-cyan-300 font-bold tracking-wider">ZALYVO</span>
+              <span className="text-cyan-300 font-bold tracking-wider">NEXIVO</span>
               <span className="text-slate-500">•</span>
               <span className="text-slate-200">{t.hero.badgeText}</span>
             </div>
@@ -59,23 +60,25 @@ export default function Hero({ onOpenQuote, onNavigate }: HeroProps) {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.15] mb-6 font-display"
               style={{ transform: 'translateZ(20px)' }}
             >
-              <span className="text-3d-display inline-block mr-2">
+              <TextReveal as="span" effect="words" className="text-3d-display inline-block mr-2">
                 {t.hero.titlePart1}
-              </span>{' '}
-              <span className="text-cyan-300 text-3d-cyan-glow inline-block">
+              </TextReveal>{' '}
+              <TextReveal as="span" effect="glow" delay={0.12} className="text-cyan-300 text-3d-cyan-glow inline-block">
                 {t.hero.titleHighlight}
-              </span>
+              </TextReveal>
             </h1>
           </ScrollReveal>
 
           {/* Subtitle with 3D Depth */}
           <ScrollReveal delay={0.25} yOffset={35}>
-            <p
-              id="hero-subtitle"
+            <TextReveal
+              as="p"
+              effect="lift"
+              delay={0.1}
               className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed font-normal text-3d-subtitle"
             >
               {t.hero.subtitle}
-            </p>
+            </TextReveal>
           </ScrollReveal>
 
           {/* Action Buttons */}
@@ -314,7 +317,7 @@ export default function Hero({ onOpenQuote, onNavigate }: HeroProps) {
                 <div className="text-left font-mono text-xs text-slate-300 space-y-2 animate-in fade-in duration-300 p-2">
                   <div className="text-slate-500">{t.hero.codeArchitectureTitle}</div>
                   <div className="text-purple-400">
-                    import <span className="text-blue-400">{'{ createModernWebsite }'}</span> from <span className="text-emerald-400">'@zalyvo/engine'</span>;
+                    import <span className="text-blue-400">{'{ createModernWebsite }'}</span> from <span className="text-emerald-400">'@nexivo/engine'</span>;
                   </div>
                   <div className="py-2 text-slate-300">
                     <span className="text-blue-400">const</span> website = <span className="text-purple-400">await</span> createModernWebsite({'{'}
